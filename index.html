@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Дорожня карта, задачі, стандарти й інструменти комунікацій фонду ССС на 2026–2028 роки">
+<title>Комунікації ССС 2026–2028</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Onest:wght@400;500;600&display=swap">
+<style>
+/* Layout: одна довга сторінка-путівник; липка навігація; секції йдуть від «що робити зараз» до довідки */
+:root{
+  --bg:#FBF6EC;          /* Молоко */
+  --surface:#FFFFFF;
+  --sand:#E6DFD0;        /* Пісок */
+  --ink:#1B2A18;         /* Глибина */
+  --muted:#66705F;       /* Камінь */
+  --brand:#214E34;       /* Зелений логотипа */
+  --brand-ink:#FBF6EC;
+  --sun:#F6B93B;         /* Соняшник */
+  --sun-soft:#FCEBC4;
+  --terra:#DC643D;       /* Теракота */
+  --terra-soft:#F8DCD1;
+  --sprout:#A9D48E;      /* Паросток */
+  --sprout-soft:#E2F0D8;
+  --sky:#D7E6FB;         /* Небо */
+  --line:#DDD5C3;
+  --chip-ink:#1B2A18;
+  --f-head:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141E12;--surface:#1D2A1A;--sand:#2A3826;--ink:#EEF0E6;--muted:#A9B3A0;--brand:#7DB88F;--brand-ink:#10190F;
+  --sun:#F6B93B;--sun-soft:#3D321A;--terra:#EE8A66;--terra-soft:#3E2419;--sprout:#A9D48E;--sprout-soft:#26361F;--sky:#22324A;--line:#34432F;--chip-ink:#EEF0E6;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141E12;--surface:#1D2A1A;--sand:#2A3826;--ink:#EEF0E6;--muted:#A9B3A0;--brand:#7DB88F;--brand-ink:#10190F;
+  --sun:#F6B93B;--sun-soft:#3D321A;--terra:#EE8A66;--terra-soft:#3E2419;--sprout:#A9D48E;--sprout-soft:#26361F;--sky:#22324A;--line:#34432F;--chip-ink:#EEF0E6;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--f-head);text-wrap:balance;margin:0;line-height:1.2}
+h2{font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem);font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.12rem;font-weight:700}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-family:var(--f-head);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--f-head);font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lead{font-size:1.06rem;color:var(--muted);max-width:68ch}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--brand)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--brand);color:var(--brand-ink)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:54px}
+.logo{font-family:var(--f-head);font-weight:800;letter-spacing:.06em;white-space:nowrap;color:var(--brand-ink);text-decoration:none}
+.logo span{color:var(--sun)}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:var(--brand-ink);opacity:.82;text-decoration:none;font-family:var(--f-head);font-weight:600;font-size:.88rem;padding:7px 11px;border-radius:999px;white-space:nowrap}
+.nav a:hover,.nav a.on{opacity:1;background:color-mix(in srgb,var(--brand-ink) 14%,transparent)}
+
+/* hero */
+.hero{background:var(--brand);color:var(--brand-ink);padding-block:44px 52px}
+.hero .eyebrow{color:var(--sun)}
+.hero h1{font-size:clamp(2rem,1.4rem + 2.6vw,3.3rem);font-weight:800;letter-spacing:-.02em;margin-top:10px;max-width:20ch}
+.hero .lead{color:color-mix(in srgb,var(--brand-ink) 82%,transparent);margin-top:14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:34px;background:color-mix(in srgb,var(--brand-ink) 22%,transparent);border-radius:14px;overflow:hidden}
+.stat{background:var(--brand);padding:18px 18px 16px}
+.stat b{display:block;font-family:var(--f-head);font-size:2.2rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:6px;font-size:.88rem;color:color-mix(in srgb,var(--brand-ink) 78%,transparent)}
+.stat.warn b{color:var(--sun)}
+.src{font-size:.8rem;color:var(--muted)}
+.hero .src{color:color-mix(in srgb,var(--brand-ink) 65%,transparent);margin-top:12px}
+.hero .src a{color:inherit}
+
+section{padding-block:56px;border-bottom:1px solid var(--line);scroll-margin-top:60px}
+.sec-head{display:grid;gap:10px;margin-bottom:28px}
+
+/* deadline banner */
+.due{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--sun-soft);border:1px solid color-mix(in srgb,var(--sun) 55%,transparent);border-radius:16px;padding:22px}
+.due .date{font-family:var(--f-head);font-weight:800;font-size:1.6rem;line-height:1;background:var(--sun);color:#1B2A18;border-radius:12px;padding:12px 14px;text-align:center}
+.due .date small{display:block;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.due ul{margin:10px 0 0;padding-left:20px;display:grid;gap:6px}
+
+/* steps timeline */
+.steps{display:grid;gap:0;margin-top:30px}
+.step{display:grid;grid-template-columns:150px 1fr;gap:24px;padding-block:22px;border-top:1px solid var(--line)}
+.step:first-child{border-top:0}
+.step .when{font-family:var(--f-head);font-weight:800;font-size:1.05rem;color:var(--brand)}
+.step .when small{display:block;font-weight:600;font-size:.8rem;color:var(--muted);margin-top:2px}
+.step ul{margin:8px 0 0;padding-left:20px;display:grid;gap:6px}
+.step li{max-width:75ch}
+.code{font-family:var(--f-head);font-weight:700;font-size:.78rem;background:var(--sand);color:var(--chip-ink);padding:1px 7px;border-radius:6px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* decisions */
+.dec-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.dec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.dec h3{display:flex;align-items:center;gap:10px}
+.dec h3 .n{font-family:var(--f-head);font-size:.78rem;background:var(--terra);color:#fff;border-radius:999px;min-width:24px;height:24px;display:inline-grid;place-items:center;padding:0 7px}
+.dec ol{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.dec li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline}
+.dec li p{min-width:0}
+.dec li .ctx{display:block;font-size:.86rem;color:var(--muted)}
+
+/* roadmap */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}
+.seg{display:inline-flex;background:var(--sand);border-radius:999px;padding:4px}
+.seg button,.chip-btn{font:600 .88rem var(--f-head);border:0;background:transparent;color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 2px rgb(0 0 0 / .12)}
+.chip-btn{background:var(--surface);border:1px solid var(--line);padding:6px 12px;display:inline-flex;align-items:center;gap:7px}
+.chip-btn[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.st-base{--c:var(--brand)} .st-part{--c:var(--sun)} .st-start{--c:var(--sky)} .st-none{--c:var(--terra)} .st-plan{--c:var(--muted)} .st-check{--c:var(--terra)}
+.dot{background:var(--c)}
+.st-start .dot,.st-start.pill{--c:#7FA6DA}
+.pill{display:inline-flex;align-items:center;gap:6px;font:700 .74rem var(--f-head);letter-spacing:.02em;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--chip-ink);white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
+
+.group{margin-top:30px}
+.group:first-child{margin-top:0}
+.group > h3{font-size:1rem;color:var(--muted);font-weight:700;padding-bottom:10px;border-bottom:2px solid var(--ink);margin-bottom:4px}
+.task{border-bottom:1px solid var(--line)}
+.task summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:baseline;padding:14px 4px}
+.task summary::-webkit-details-marker{display:none}
+.task summary .t{font-weight:600;min-width:0}
+.task summary .t small{display:block;font-weight:400;color:var(--muted);font-size:.88rem;margin-top:3px}
+.task[open] summary{background:color-mix(in srgb,var(--sand) 45%,transparent)}
+.task .body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;padding:6px 4px 20px 88px}
+.task .body h4{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:700}
+.task .body .full{grid-column:1/-1}
+.qline{display:flex;flex-wrap:wrap;gap:6px}
+.qline span{font-size:.82rem;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:4px 8px}
+.qline span b{font-family:var(--f-head);font-size:.72rem;color:var(--brand);display:block}
+
+.quarters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.qcol{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+.qcol.now{border:2px solid var(--sun)}
+.qcol h3{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.qcol h3 small{font-size:.78rem;color:var(--muted);font-weight:600}
+.qcol ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:9px}
+.qcol li{display:grid;grid-template-columns:auto 1fr;gap:8px;font-size:.92rem;align-items:baseline}
+
+/* team table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:760px}
+th,td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line);font-size:.93rem}
+th{font:700 .74rem var(--f-head);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:color-mix(in srgb,var(--sand) 50%,transparent)}
+tr:last-child td{border-bottom:0}
+td.blk{font-family:var(--f-head);font-weight:700;width:190px}
+td.cnt{white-space:nowrap;font-family:var(--f-head);font-variant-numeric:tabular-nums}
+td.cnt b{color:var(--terra)}
+.note{margin-top:12px;font-size:.9rem;color:var(--muted);max-width:80ch}
+
+/* tasks in work */
+.split{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:start}
+.work{display:grid;gap:10px}
+.wi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:52px 1fr;gap:12px}
+.wi.late{border-left:4px solid var(--terra)}
+.wi .no{font-family:var(--f-head);font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.wi h4{font-size:.98rem;font-weight:700}
+.wi .meta{font-size:.84rem;color:var(--muted);margin-top:3px}
+.wi .meta .dl{color:var(--ink);font-weight:600}
+.wi .meta .dl.late{color:var(--terra)}
+.wi .nx{font-size:.88rem;margin-top:7px}
+.wi .nx b{font-family:var(--f-head);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--brand)}
+.results{display:grid;gap:14px}
+.res{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.res b.big{font-family:var(--f-head);font-weight:800;font-size:2rem;line-height:1;color:var(--brand);font-variant-numeric:tabular-nums}
+.res p{margin-top:6px;font-size:.92rem}
+.bars{display:grid;gap:7px;margin-top:12px}
+.bar{display:grid;grid-template-columns:86px 1fr 34px;gap:8px;align-items:center;font-size:.84rem}
+.bar i{display:block;height:10px;border-radius:5px;background:var(--brand)}
+.bar .v{font-family:var(--f-head);font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+
+/* standards */
+.flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;counter-reset:s;margin-top:6px}
+.fl{padding:18px 16px 18px 0;border-top:3px solid var(--brand);position:relative;min-width:0}
+.fl::before{counter-increment:s;content:counter(s);position:absolute;top:-15px;left:0;width:27px;height:27px;border-radius:50%;background:var(--brand);color:var(--brand-ink);font:800 .85rem var(--f-head);display:grid;place-items:center}
+.fl h4{font-size:1rem;margin-top:12px}
+.fl p{font-size:.88rem;color:var(--muted);margin-top:6px}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:34px}
+.rule{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.rule ul{margin:10px 0 0;padding-left:18px;display:grid;gap:6px;font-size:.92rem}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.kpi div{background:var(--sprout-soft);border-radius:10px;padding:12px}
+.kpi b{display:block;font-family:var(--f-head);font-size:1.25rem;font-weight:800}
+.kpi span{font-size:.82rem}
+
+/* links */
+.search{width:100%;max-width:420px;font:500 1rem var(--f-body);padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
+.lg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+.lg h3{font-size:1rem}
+.lg ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:4px}
+.lg li a{display:block;padding:7px 0;border-bottom:1px dashed var(--line);text-decoration:none;font-weight:500}
+.lg li a:hover{text-decoration:underline}
+.lg li small{display:block;color:var(--muted);font-size:.8rem;font-weight:400}
+.lg li:last-child a{border-bottom:0}
+.lg.key{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.lg.key a{color:var(--brand-ink);border-color:color-mix(in srgb,var(--brand-ink) 25%,transparent)}
+.lg.key small{color:color-mix(in srgb,var(--brand-ink) 72%,transparent)}
+.empty{color:var(--muted);margin-top:14px}
+
+footer{padding-block:34px 50px;color:var(--muted);font-size:.88rem}
+footer p+p{margin-top:8px}
+
+@media (max-width:900px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dec-grid,.split,.quarters,.links,.rules{grid-template-columns:minmax(0,1fr)}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:26px}
+  .kpi{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .step{grid-template-columns:minmax(0,1fr);gap:4px}
+  .task .body{grid-template-columns:minmax(0,1fr);padding-left:4px}
+}
+@media (max-width:520px){
+  .task summary{grid-template-columns:minmax(0,1fr) auto}
+  .task summary .code{grid-column:1/-1;justify-self:start}
+  .due{grid-template-columns:minmax(0,1fr)}
+  .due .date{justify-self:start}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#holovne">SSS<span>·</span>КОМ</a>
+    <nav class="nav" aria-label="Розділи">
+      <a href="#dali">Що далі</a>
+      <a href="#rishennia">Рішення</a>
+      <a href="#karta">Дорожня карта</a>
+      <a href="#komanda">Хто веде</a>
+      <a href="#zadachi">Задачі й результати</a>
+      <a href="#standarty">Стандарти</a>
+      <a href="#instrumenty">Інструменти</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="holovne">
+  <div class="wrap">
+    <p class="eyebrow">Для керівництва фонду · стан на 12.11.2026</p>
+    <h1>Розвиток комунікацій ССС: де ми зараз і що далі</h1>
+    <p class="lead">Тут зібрано план реалізації комунікаційної стратегії до 2028 року, стан задач, розподіл відповідальності після 20.11, правила роботи з матеріалом і всі робочі таблиці. Дані взято з трекера «Задачі_фонду», розбивки стратегії та «Комунікаційних стандартів ССС».</p>
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><b>67</b><span>задач виконано</span></div>
+      <div class="stat" role="listitem"><b>18</b><span>задач у роботі</span></div>
+      <div class="stat warn" role="listitem"><b>4</b><span>задачі прострочено</span></div>
+      <div class="stat" role="listitem"><b>28</b><span>напрямів стратегії розписано до 2028</span></div>
+    </div>
+    <p class="src">Джерело: аркуш «Огляд» трекера <a href="https://docs.google.com/spreadsheets/d/1xZzGXf0uM-H08AP-6IiT2Sbl1jYueXwJm9l438D5InA/edit?gid=853143665" target="_blank" rel="noopener">«Задачі_фонду»</a> і аркуш «Операційні завдання» <a href="https://docs.google.com/spreadsheets/d/1yPF9rNu2KzvLI_b_WUKI5XsNWBwoLG4a4MQyhLZEtCM/edit?gid=1524788926" target="_blank" rel="noopener">розбивки стратегії</a>. Ще 2 задачі відкладено.</p>
+  </div>
+</div>
+
+<main>
+<!-- ЩО ДАЛІ -->
+<section id="dali">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Як рухати комунікації</p>
+      <h2>Що робимо далі, крок за кроком</h2>
+      <p class="lead">Послідовність зібрано зі строків у розбивці стратегії і з відкритих задач трекера. Код у сірій плашці — номер завдання стратегії, «№» — номер задачі в трекері.</p>
+    </div>
+
+    <div class="due">
+      <div class="date num">20.11<small>передача</small></div>
+      <div>
+        <h3>До 20 листопада: передати процеси і закріпити відповідальних</h3>
+        <ul>
+          <li>Передати напрацювання і процеси комунікаційного відділу Ользі Івановій <span class="code">№85</span>. Підсумковий звіт для О. Іванової вже зроблено <span class="code">№82</span>; потрібна дата зустрічі і рішення, кому передаються процеси.</li>
+          <li>Визначити, хто веде реалізацію стратегії після 20.11 <span class="code">№1</span>, і хто фінально погоджує публікації <span class="code">№17</span>.</li>
+          <li>Затвердити розподіл блоків задач «Хто веде після 20.11» — зараз це пропозиція (див. розділ «Хто веде»).</li>
+          <li>Закрити поточні строки: звіт NRC про роботу з радами ВПО до 16.11 <span class="code">№88</span>, напрями розвитку Порталу Рад ВПО для заявки до 17.11 <span class="code">№87</span>.</li>
+          <li>Базовий мінімум комунікацій для грантових заявок, 2 варіанти — строк 20.11 <span class="code">С2.1.2</span>. Шаблону комплану (строк 01.11) у трекері ще немає.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <p class="when">Грудень 2026<small>4 квартал</small></p>
+        <div>
+          <h3>Закласти основу: структура, правила, точка відліку</h3>
+          <ul>
+            <li>Частковий перерозподіл ролей (крім УВКБ ООН), структура команди і схема взаємодії <span class="code">С1.1</span></li>
+            <li>Алгоритм узгодження матеріалів у тестовому режимі; основа — «Комунікаційні стандарти ССС» <span class="code">С2.4</span></li>
+            <li>Аудит наявного обладнання <span class="code">С3.1</span>; метрики, джерела даних і інструменти збору <span class="code">С3.2</span></li>
+            <li>Опитування і навчання з базового відеомейкінгу для комунікаційників <span class="code">С4.2</span></li>
+            <li>One pager про ССС <span class="code">С5.1</span>, аудит комунікацій конкурентів <span class="code">С5.3</span>, документ про фондові (брендові) комунікації з рубрикатором <span class="code">С5.4</span></li>
+            <li>Меседж-бокси для кожної аудиторії і Tone of Voice <span class="code">С6.2</span>; ТЗ на SEO/AEO <span class="code">С6.5</span>; перевірка профілів у соцмережах <span class="code">С6.6</span></li>
+            <li>Анкета з MEL і базове опитування впізнаваності бренду <span class="code">С6.8</span>; базові показники залученості по всіх каналах в одному дашборді <span class="code">С6.9</span></li>
+            <li>Перша щорічна статус-перевірка стратегії <span class="code">С5.2.7</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <p class="when">Січень–березень 2027<small>1 квартал</small></p>
+        <div>
+          <h3>Рішення про модель і запуск змін</h3>
+          <ul>
+            <li>Рішення керівників фонду щодо централізованої моделі комунікацій (лютий) <span class="code">С1.1</span></li>
+            <li>Антикризовий протокол з погодинною інструкцією <span class="code">С2.4</span></li>
+            <li>Презентація меседж-боксів і тренінг для команди фонду (січень) <span class="code">С6.2</span></li>
+            <li>Впровадження змін на сайті (березень) <span class="code">С6.4</span>, SEO-оптимізація паралельно <span class="code">С6.5</span>, оновлення соцмереж (березень) <span class="code">С6.6</span></li>
+            <li>Бюджет і пріоритети закупівлі техніки <span class="code">С3.1</span>; старт регулярного моніторингу даних <span class="code">С3.2</span></li>
+            <li>Опитування співробітників щодо внутрішньої комунікації <span class="code">С2.2</span>, база знань команди <span class="code">С4.1</span></li>
+            <li>Медіабаза на 80 медіа <span class="code">С5.2.1</span>, аудит соцмереж <span class="code">С5.2.2</span>, база внутрішніх експертів <span class="code">С5.2.5</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <p class="when">Квітень–грудень 2027<small>2–4 квартали</small></p>
+        <div>
+          <h3>Стратегічні документи і перші тести</h3>
+          <ul>
+            <li>Посадові інструкції (червень) і затвердження структури директорками (липень) <span class="code">С1.1</span>; позиція керівника комунікаційної команди — з січня 2027</li>
+            <li>Медіакіт і медіастратегія, SMM-стратегія, політика і стратегія просування, адвокаційні комунікації <span class="code">С5.2</span></li>
+            <li>Матриця «аудиторія–повідомлення–канал» (травень) <span class="code">С6.3</span>; політика залучення зовнішніх фахівців <span class="code">С6.7</span></li>
+            <li>Шаблон контент-плану за моделлю PESO і система збору даних (липень), тест на першому проєкті <span class="code">С2.3</span></li>
+            <li>Затвердження процедури комунікаційного плану для кожного проєкту (листопад) <span class="code">С2.1</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <p class="when">2028<small>до кінця стратегії</small></p>
+        <div>
+          <h3>Масштабування і вимір результату</h3>
+          <ul>
+            <li>Тест «фабрики контенту» ще на двох проєктах і підсумок <span class="code">С2.3</span></li>
+            <li>Не менше 8 сталих медіапартнерств і 8 матеріалів у партнерів; не менше 4 інфопартнерств <span class="code">С5.2</span></li>
+            <li>Повторне опитування впізнаваності за тією ж методологією і порівняльний звіт <span class="code">С6.8</span></li>
+            <li>Щоквартальні зрізи показників по всіх каналах <span class="code">С6.9</span>; щорічні статус-перевірки стратегії <span class="code">С5.2.7</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- РІШЕННЯ -->
+<section id="rishennia">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Потрібне рішення О. Іванової / директорок</p>
+      <h2>Що має вирішити керівництво</h2>
+      <p class="lead">Питання з колонки «Потрібне рішення» трекера «Задачі_фонду», згруповані за темою.</p>
+    </div>
+    <div class="dec-grid" id="decisions"></div>
+  </div>
+</section>
+
+<!-- ДОРОЖНЯ КАРТА -->
+<section id="karta">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Комунікаційна стратегія 2026–2028</p>
+      <h2>Дорожня карта і стан кожного напряму</h2>
+      <p class="lead">28 операційних завдань із розбивки стратегії. Стан на 12.11 звірено з трекером. Відкрийте рядок, щоб побачити кроки за кварталами, відповідальних і очікуваний результат.</p>
+    </div>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Вигляд">
+        <button type="button" id="v-dir" aria-pressed="true">За напрямами</button>
+        <button type="button" id="v-q" aria-pressed="false">За кварталами</button>
+      </div>
+      <div class="filters" id="st-filters" role="group" aria-label="Фільтр за станом" style="margin:0"></div>
+    </div>
+    <div id="rm-dir"></div>
+    <div id="rm-q" hidden></div>
+    <p class="src" style="margin-top:16px">Джерело: <a href="https://docs.google.com/spreadsheets/d/1yPF9rNu2KzvLI_b_WUKI5XsNWBwoLG4a4MQyhLZEtCM/edit?gid=1524788926" target="_blank" rel="noopener">«Декомпозиція стратегії» → «Операційні завдання»</a>.</p>
+  </div>
+</section>
+
+<!-- ХТО ВЕДЕ -->
+<section id="komanda">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Розподіл після 20.11</p>
+      <h2>Хто що веде після 20 листопада</h2>
+      <p class="lead">88 задач трекера розкладено на 8 блоків. У колонці «Хто веде» — пропозиція, яку має затвердити керівництво.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Блок</th><th>Що входить</th><th>Задач / відкритих</th><th>Хто веде після 20.11 (пропозиція)</th></tr></thead>
+        <tbody id="blocks"></tbody>
+      </table>
+    </div>
+    <p class="note">Джерело: аркуш <a href="https://docs.google.com/spreadsheets/d/1xZzGXf0uM-H08AP-6IiT2Sbl1jYueXwJm9l438D5InA/edit?gid=555001" target="_blank" rel="noopener">«Блоки задач»</a>. Разом 88 задач, з них 21 відкрита; задач без блоку немає.</p>
+  </div>
+</section>
+
+<!-- ЗАДАЧІ -->
+<section id="zadachi">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Статус і результати</p>
+      <h2>Задачі в роботі і що вже дало результат</h2>
+      <p class="lead">Ліворуч 18 задач зі статусом «В роботі» і запропонований наступний крок з колонки «Ком-задачі: що могли б зробити». Праворуч — цифри з трекера і таблиці дій команди.</p>
+    </div>
+    <div class="split">
+      <div>
+        <div class="filters" id="w-filters" role="group" aria-label="Фільтр задач"></div>
+        <div class="work" id="work"></div>
+      </div>
+      <div class="results">
+        <div class="res">
+          <b class="big">108</b>
+          <p>матеріалів у соцмережах і на сайті за жовтень</p>
+          <div class="bars" id="bars"></div>
+          <p class="src" style="margin-top:10px">Звіт Надії Заславської за жовтень, у таблиці дій команди.</p>
+        </div>
+        <div class="res">
+          <b class="big">8,7 тис.</b>
+          <p>активних користувачів Порталу Рад ВПО у вересні. На Порталі 14 матеріалів у вересні і 12 у жовтні, 23 розсилки SendPulse за два місяці.</p>
+        </div>
+        <div class="res">
+          <b class="big">30</b>
+          <p>новин на сайті за проєктами у вересні–жовтні; ще 6 новин без закріпленого відповідального.</p>
+        </div>
+        <div class="res">
+          <b class="big">981 год</b>
+          <p>роботи команди з 10 людей за вересень–жовтень, оцінка за поштою, фокусами і звітами. Це база для С1.1.1 — зведення фактичного навантаження. Оцінка неповна: частину днів і зустрічей у пошті не видно; деталі й застереження по кожному — у таблиці.</p>
+          <p class="src" style="margin-top:8px"><a href="https://docs.google.com/spreadsheets/d/1zbzzx8kRUBKnOt8B5NRpyd3w7-SIbn8FToGrkNr43AM/edit?gid=100" target="_blank" rel="noopener">«Команда комунікацій — дії вересень–жовтень 2026 і оцінка часу»</a></p>
+        </div>
+        <div class="res">
+          <h3>Що вже запущено</h3>
+          <ul style="margin:10px 0 0;padding-left:18px;display:grid;gap:6px;font-size:.92rem">
+            <li>Стратегію презентовано колегам 02.10 <span class="code">№29</span></li>
+            <li>«Комунікаційні стандарти ССС» і Навігатор по комунікаціях <span class="code">№84</span> <span class="code">№26</span></li>
+            <li>Комунікаційну політику розіслано 03.11 <span class="code">№52</span></li>
+            <li>Ритм команди: 3 фокуси щопонеділка, п'ятнична синхронізація, огляд «Що ми розповіли світу» <span class="code">№31</span> <span class="code">№32</span> <span class="code">№56</span></li>
+            <li>Прототипи сайту 2026, оновлені сторінки проєктів, прототипи Порталу <span class="code">№91</span> <span class="code">№93</span> <span class="code">№92</span></li>
+            <li>11 ліцензій Claude для команди <span class="code">№25</span></li>
+            <li>Медіасупровід IV Форуму Рад ВПО і аналіз роботи команди <span class="code">№109</span> <span class="code">№72</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- СТАНДАРТИ -->
+<section id="standarty">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Як працюємо з матеріалом</p>
+      <h2>Стандарти: шлях кожного матеріалу</h2>
+      <p class="lead">Порядок із розділу 3 «Комунікаційних стандартів ССС». Матеріали передаємо за 2 дні до дедлайну і після попереднього погодження із замовником.</p>
+    </div>
+    <div class="flow">
+      <div class="fl"><h4>Завдання</h4><p>PM ставить запит через форму заявок: що, навіщо, для кого, дедлайн, вимоги донора, факти й фото. Комунікаційна лідка призначає виконавця.</p></div>
+      <div class="fl"><h4>Чернетка</h4><p>Автор пише текст і сам проходить чекліст.</p></div>
+      <div class="fl"><h4>Перевірка фактів</h4><p>PM підтверджує цифри, імена, цитати за 48 год. Править лише факти, не стиль.</p></div>
+      <div class="fl"><h4>Редагування</h4><p>Редактор перевіряє за чеклістом і повертає автору з коментарями. Максимум 2 раунди.</p></div>
+      <div class="fl"><h4>Погодження</h4><p>Донор — лише якщо цього вимагає договір. Фінальне рішення — редактор, для чутливих тем — комунікаційна лідка.</p></div>
+      <div class="fl"><h4>Публікація</h4><p>Сайт, соцмережі, посилання PM і партнерам.</p></div>
+    </div>
+
+    <div class="rules">
+      <div class="rule">
+        <h3>Старт і ритм проєкту</h3>
+        <ul>
+          <li>Увесь процес від листа PM до сторінки проєкту — 5 днів; правки — впродовж 2 днів.</li>
+          <li>Публікація про старт — не пізніше ніж через тиждень після старту проєкту.</li>
+          <li>Поки проєкт триває — новини щомісяця або частіше, якщо так у комплані.</li>
+          <li>Кожен проєкт хоча б раз виходить на зовнішній майданчик: радіо, ТБ, коментар, колонка.</li>
+          <li>Сторінку проєкту оновлюємо раз на 3 місяці.</li>
+        </ul>
+      </div>
+      <div class="rule">
+        <h3>Як розповідаємо</h3>
+        <ul>
+          <li>Формула «результат дії»: людина або цифра, роль фонду, що змінилося.</li>
+          <li>Новина — журналістський матеріал; сухі звітні тексти повертаємо на доопрацювання.</li>
+          <li>Кожна новина з сайту виходить постами у Facebook та Instagram.</li>
+          <li>Колонки: одна на місяць для LIGA.Думки і колонка на сайт після кожної поїздки чи виступу.</li>
+          <li>Голос фонду — «дорослий — дорослому»: спокійно, з фактами, без жертвізації.</li>
+        </ul>
+      </div>
+      <div class="rule">
+        <h3>Ритм команди</h3>
+        <ul>
+          <li>Понеділок: кожен пише 3 фокуси на тиждень у чат команди.</li>
+          <li>П'ятниця: синхронізація, звіт за тиждень — 1 слайд.</li>
+          <li>Раз на 2 тижні: огляд «Що ми розповіли світу» для всіх колег.</li>
+          <li>Щомісяця: загальне планування фонду (Monday planning).</li>
+          <li>Задача без власника, дедлайну і мети не береться в роботу.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule" style="margin-top:18px">
+      <h3>Як міряємо ефективність (орієнтири зі Стандартів, розділ 29)</h3>
+      <div class="kpi">
+        <div><b>&gt; 5%</b><span>залученість у Facebook та Instagram</span></div>
+        <div><b>&gt; 3%</b><span>залученість у LinkedIn</span></div>
+        <div><b>&gt; 2 хв</b><span>час на сторінці сайту</span></div>
+        <div><b>&gt; 20% / 5%</b><span>відкриття / кліки в розсилках</span></div>
+      </div>
+      <p class="note">Звіт — щомісяця в таблиці, аналіз кампаній — щокварталу. Цілі стратегії до 2028: +30% згадок фонду в медіа і соцмережах до базового рівня, не менше 5 регулярних спікерів до кінця 2027, відкриття розсилок не нижче 25% з 2027, engagement rate +20%, не менше 12 відео на рік з 2027, трійка організацій сфери ВПО за кількістю згадок (аркуш <a href="https://docs.google.com/spreadsheets/d/1yPF9rNu2KzvLI_b_WUKI5XsNWBwoLG4a4MQyhLZEtCM/edit?gid=70049489" target="_blank" rel="noopener">«SSS KPI»</a>).</p>
+    </div>
+    <p class="note">Повний текст із чеклістами новини, поста, сторінки проєкту, фото, редполітикою і промптами — у документі <a href="https://docs.google.com/document/d/1N4fEoNgNshmLV7yPfst8yJDMgF4zE4pRBIAEOzjpbQE/edit" target="_blank" rel="noopener">«Комунікаційні стандарти ССС»</a>.</p>
+  </div>
+</section>
+
+<!-- ІНСТРУМЕНТИ -->
+<section id="instrumenty">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Усе в одному місці</p>
+      <h2>Інструменти, таблиці і звіти</h2>
+    </div>
+    <label for="q" class="eyebrow" style="display:block;margin-bottom:6px">Пошук за назвою</label>
+    <input id="q" class="search" type="search" placeholder="Наприклад: медіакарта, бренд, контент-план" autocomplete="off">
+    <div class="links" id="links"></div>
+    <p class="empty" id="no-links" hidden>Нічого не знайдено. Спробуйте інше слово.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Сторінку зібрано 12.11.2026 з таблиць і документів фонду ССС. Цифри й статуси — на цю дату; актуальний стан завжди в трекері «Задачі_фонду».</p>
+    <p>Посилання ведуть на внутрішні документи; щоб відкрити їх, потрібен доступ до робочого Google Диска фонду.</p>
+  </div>
+</footer>
+
+<script>
+const T = "https://docs.google.com/spreadsheets/d/1xZzGXf0uM-H08AP-6IiT2Sbl1jYueXwJm9l438D5InA/edit?gid=2064062322";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- Рішення ---------- */
+const DECISIONS = [
+  {g:"Передача і відповідальність", items:[
+    ["№1","Хто веде реалізацію стратегії після 20.11","Розбивка стратегії на задачі"],
+    ["№17","Хто фінально погоджує публікації після 20.11","Зараз погоджується кожен пост для сайту і Facebook"],
+    ["№82","Дата зустрічі; кому передаються процеси","Підсумковий звіт і зустріч щодо трансформації відділу"],
+    ["№75","Затвердити структуру і продовження контрактів","Кадрові питання: вакансія, контракти до 31.12"],
+    ["№48","Затвердити кандидата","Вакансія «Голос змін», проведено 3 співбесіди"],
+    ["№74","Хто замовляє комунікації по проєктах І. Курінної","Хендовер і перерозподіл її задач"]
+  ]},
+  {g:"Сайт і Портал Рад ВПО", items:[
+    ["№13","Затвердити нову верстку сайту","Прототипи 2026: головна, новини, сторінка проєкту, «Хто ми»"],
+    ["№54","Затвердити палітру сайту","Зроблено варіанти A/B і версію з 3 кольорами"],
+    ["№11","Вибір розробника і бюджет","Сайт Рад ВПО: нове ТЗ для розробника"],
+    ["№71","Рішення щодо розвитку Порталу","Аналітична записка про позиціонування Порталу"],
+    ["№19","Підтвердити, що лендинги робимо власними силами","2–3 нові лендінги"],
+    ["№94","Чи просити адміністратора встановити плагін форм (Fluent Forms) для заявок на сайті","Сторінка набору до Наглядової ради"]
+  ]},
+  {g:"Формати і контент", items:[
+    ["№12","Чи продовжуємо формат на LIGA і хто його веде","Колонку відкладено; LIGA просить журналістський підхід"],
+    ["№56","Чи робимо огляд «Що ми розповіли світу» регулярним, раз на 2 тижні","Перший огляд розіслано 02.11"],
+    ["№68","Чи публікуємо пост","Фонд — рецензент дослідження НССУ"],
+    ["№52","Затвердити комунікаційну політику","Політику розіслано 03.11, є драфт єдиного файлу"]
+  ]},
+  {g:"Процеси та облік", items:[
+    ["№80","Taiga чи трекер «Задачі_фонду»","Дошки в Taiga створено 05–16.10"],
+    ["№33","Хто відповідає за облік публікацій","Облік публікацій у соцмережах по проєкту УВКБ ООН"],
+    ["№49","Кому передати брошуру WISUP, якщо не встигне до 20.11","Верстка брошури проєкту WISUP"],
+    ["№6","Затвердження буклету Ю. Сучок","Дизайн буклету проєкту"]
+  ]}
+];
+document.getElementById("decisions").innerHTML = DECISIONS.map(d => `
+  <div class="dec"><h3><span class="n">${d.items.length}</span>${esc(d.g)}</h3>
+  <ol>${d.items.map(i=>`<li><span class="code">${i[0]}</span><p>${esc(i[1])}<span class="ctx">${esc(i[2])}</span></p></li>`).join("")}</ol></div>`).join("");
+
+/* ---------- Дорожня карта ---------- */
+const ST = {
+  base:{l:"Основа є",c:"st-base"}, part:{l:"Частково",c:"st-part"}, start:{l:"Перші кроки",c:"st-start"},
+  none:{l:"Не почато",c:"st-none"}, plan:{l:"Заплановано",c:"st-plan"}, check:{l:"Уточнити",c:"st-check"}
+};
+const QN = ["3 кв 2026","4 кв 2026","1 кв 2027","2 кв 2027","3 кв 2027","4 кв 2027","1 кв 2028","2 кв 2028","3 кв 2028","4 кв 2028"];
+// q: індекс кварталу -> віха
+const RM = [
+ {grp:"1. Організаційна структура та ролі", items:[
+  {c:"С1.1",t:"Оновити оргструктуру комунікаційної команди, посадові, процеси і ролі",s:"part",
+   q:{1:"Зведення фактичного навантаження і норми часу (листопад); частковий перерозподіл ролей, крім УВКБ ООН (грудень); структура команди і схема взаємодії (грудень)",2:"Рішення керівників фонду щодо централізованої моделі (лютий)",3:"Посадові інструкції (червень)",4:"Затвердження структури директорками (липень)"},
+   who:"Веде: Керівник з розвитку, Анна Борисова; HR-відділ, відділ кадрів, програмні директорки. Долучаються: Надія Заславська, Софія Стоянович",
+   res:"Позиція старшого комунікаційного менеджера до кінця 2026 і керівника комунікаційної команди з січня 2027. KPI стратегії виконано на 90%, задоволеність роботою команди — 8 з 10.",
+   now:"Зроблено: оргструктура з описами посад, очікуваними результатами і зайнятістю (№75, №82, №85); фактичне навантаження за вересень–жовтень (№125); розподіл відповідальності після 20.11; вакансія і співбесіди (№48). Далі: рішення керівників щодо моделі, посадові інструкції."}
+ ]},
+ {grp:"2. Процеси та стандарти роботи", items:[
+  {c:"С2.1",t:"Обов'язковий комунікаційний план для кожного проєкту",s:"part",
+   q:{1:"Шаблон комплану: драфт → коментарі → затвердження (1 листопада); базовий мінімум комунікацій для грантових заявок, 2 варіанти (20 листопада)",5:"Затвердження процедури (листопад 2027)"},
+   who:"Веде: Керівник з розвитку (з командою на п'ятничних зустрічах); затвердження — програмні директорки. Долучаються: Олександр Винокур, Ганна Панахно, Дар'я Гончарова, Надія Заславська",
+   res:"Шаблон і процедура застосовуються в перший місяць кожного нового проєкту або на етапі заявки.",
+   now:"Комплани двох нових проєктів у роботі (№114), контент-план WISUP подано 30.10. Шаблону комплану і базового мінімуму для заявок у трекері немає (строки 01.11 і 20.11)."},
+  {c:"С2.2",t:"Єдиний підхід до внутрішньої комунікації",s:"part",
+   q:{2:"Опитування співробітників; структура, формати, таймінг",3:"Узгодження з HR-політиками, правила нотаток і follow-up",5:"Повторне опитування задоволеності",9:"Повторне опитування задоволеності"},
+   who:"Веде: HR-відділ + Керівник з розвитку",
+   res:"Регулярна внутрішня комунікація; опитування кожні 6–12 місяців показують задоволеність.",
+   now:"Ритм команди — 3 фокуси (№31), п'ятнична синхронізація (№32), огляд «Що ми розповіли світу» (№56), Навігатор (№26). Опитування співробітників фонду ще не проведено (було лише опитування комунікаційників, №27)."},
+  {c:"С2.3",t:"«Фабрика контенту» в проєктах за моделлю PESO",s:"start",
+   q:{4:"Шаблон та інструкція контент-плану за PESO; система збору даних та аналітики (липень)",5:"Тестування: проєкт 1",7:"Тестування: проєкт 2",9:"Тестування: проєкт 3, підсумок"},
+   who:"Веде: Керівник з розвитку (шаблон), Контент-менеджер (система даних), менеджери напрямів (тестування). Долучається: Софія Стоянович",
+   res:"Шаблон, інструкція і система моніторингу до липня 2027; тест на 3 проєктах до кінця 2028.",
+   now:"Почато: контент-план фонду (№17), понеділкові проєктні зустрічі → контент-план (№127), поля «Мета / KPI» у формі заявок (№126). Шаблону за PESO ще немає."},
+  {c:"С2.4",t:"Алгоритм узгодження матеріалів і антикризовий план",s:"base",
+   q:{1:"Алгоритм узгодження (основа — «Комунікаційні стандарти ССС»), запуск у тестовому режимі (грудень)",2:"Антикризовий протокол з погодинною інструкцією"},
+   who:"Веде: Керівник з розвитку. Долучаються: Надія Заславська, Олександр Винокур",
+   res:"Алгоритм прокомуніковано працівникам і запущено в тестовому режимі; є антикризовий план з погодинною інструкцією.",
+   now:"Основа є: «Комунікаційні стандарти ССС» з порядком роботи з матеріалом і розділом про кризові комунікації (№84); комунікаційну політику розіслано 03.11 (№52); правило і бриф на пост (№128). Антикризового протоколу немає."}
+ ]},
+ {grp:"3. Технічна база та інструменти", items:[
+  {c:"С3.1",t:"Техніка для комунікацій і підписки на ШІ-інструменти",s:"part",
+   q:{1:"Опитування потреб (зібрано) і аудит обладнання (грудень)",2:"Бюджет і пріоритетність закупівель",3:"Закупівля",4:"Підключення та інструктаж (до липня)"},
+   who:"Веде: Керівник з розвитку; бюджет — директорки. Долучаються: Надія Заславська, відеомейкер / продакшн",
+   res:"Опитування і аудит до кінця 2026, бюджет у 1 кв 2027, обладнання й інструктаж до липня 2027.",
+   now:"Потреби в техніці зібрано (№30), 11 ліцензій Claude (№25). Аудиту наявного обладнання і рішення про закупівлю немає."},
+  {c:"С3.2",t:"Модель збору й аналізу даних для комунікаційних рішень",s:"part",
+   q:{1:"Метрики, джерела даних, інструменти збору (грудень)",2:"Старт регулярного моніторингу",3:"Механізм використання даних для планування інфоприводів",4:"Тестовий період",5:"Підсумок тестового періоду"},
+   who:"Веде: Контент-менеджер (сайти і SMM) + MEL-відділ. Долучається: Керівник з розвитку",
+   res:"Модель розроблено до кінця 2026, тестовий період — протягом 2027.",
+   now:"Звіт Google Analytics сайту (24.09), звіт Порталу за вересень (8,7 тис. активних користувачів), тест Serpstat (№119). Моделі метрик і джерел даних ще немає."}
+ ]},
+ {grp:"4. Знання та навички команди", items:[
+  {c:"С4.1",t:"Внутрішня база знань і бібліотека команди",s:"part",
+   q:{2:"Опитування щодо навчання, платформа, наповнення (основа — «Комунікаційні стандарти ССС»)",3:"Відповідальний за оновлення, збір зворотного зв'язку",5:"Оновлення бази за відгуками",7:"Оновлення бази за відгуками",9:"Оновлення бази за відгуками"},
+   who:"Веде: Керівник з розвитку",
+   res:"База знань працює, її оновлюють кожні 6–12 місяців за відгуками.",
+   now:"Навігатор (№26) і «Комунікаційні стандарти» з онбордингом і промптами (№84) — основа бази; навчання з К. Дубнюк (№117), тренінги R2P і Meta (№81). Опитування щодо навчання немає."},
+  {c:"С4.2",t:"Навчання з базового відеомейкінгу",s:"part",
+   q:{1:"Опитування щодо рівня володіння відеоінструментами; графік і проведення навчання (грудень)"},
+   who:"Веде: Керівник з розвитку + відеомейкер",
+   res:"Навчання до кінця 2026; частка відео власними силами +20% до кінця 2028.",
+   now:"Посібник «Монтаж відео з Claude» у Стандартах (№84). Опитування і навчання не проведено (строк — грудень)."}
+ ]},
+ {grp:"5. Позиціонування та стратегічні документи", items:[
+  {c:"С5.1",t:"One pager про ССС: місія, візія, цінності, меседжі, логотипи",s:"none",
+   q:{1:"Структура, текст, верстка в айдентиці; комунікація з командою (грудень)"},
+   who:"Веде: Олександр Винокур. Долучається: Софія Стоянович",
+   res:"Єдиний документ-презентація фонду для партнерів і медіа.",
+   now:"У трекері задачі немає — не почато (строк — грудень)."},
+  {c:"С5.2.1",t:"Медіастратегія з медіабазою і медіакітом",s:"start",
+   q:{2:"Медіабаза (80 медіа)",3:"Медіакіт",4:"Медіастратегія до 2028",5:"Медіапартнерства, публікації в партнерів",7:"Медіапартнерства, публікації в партнерів"},
+   who:"Веде: Медіа-менеджер. Долучаються: Юрій Патиківський, Максим, Софія Стоянович, Ганна Панахно, Дар'я Гончарова",
+   res:"База 80 медіа, медіакіт, стратегія до 2028, не менше 8 сталих медіапартнерств і 8 матеріалів.",
+   now:"Ефір «Третій сектор» (№51), медіапартнерство з hromadske на IV Форумі (№109). Медіабази й медіакіту немає."},
+  {c:"С5.2.2",t:"SMM-стратегія з вимогами до контенту",s:"start",
+   q:{2:"Аудит соцмереж і аналіз партнерів (разом із С6.6)",3:"Вимоги до контенту, SMM-стратегія",5:"LinkedIn: +1000 цільових підписників за 2027",9:"Ефективність соцмереж +20%; LinkedIn: +1000 за 2028"},
+   who:"Веде: Контент-менеджер (сайти і SMM). Долучаються: Надія Заславська (LinkedIn), Софія Стоянович",
+   res:"Аудит, вимоги до контенту, SMM-стратегія до 2028; ефективність соцмереж +20%.",
+   now:"Поступовий запуск LinkedIn (№16), 20 питань щодо брендбука в соцмережах і дописи FB за рубриками (№53), алгоритм поста в Стандартах. Аудиту і SMM-стратегії немає."},
+  {c:"С5.2.3",t:"Стратегія просування: таргетинг, канали",s:"start",
+   q:{3:"Політика просування (таргетинг, канали)",4:"Стратегія просування до 2028",5:"Тестове просування"},
+   who:"Веде: Керівник з розвитку",
+   res:"Політика і стратегія просування, проведено тестове просування.",
+   now:"Таблиця таргету УВКБ (№34), Google Ad Grants — підрядника погоджено, договір на підписанні (№119). Політики просування немає."},
+  {c:"С5.2.4",t:"Інформаційна співпраця з організаціями, інфлюенсерами, бізнесом",s:"start",
+   q:{4:"База організацій, лідерів думок, бізнесів",5:"Стратегія інформаційної співпраці",7:"Інфопартнерства, партнерські матеріали"},
+   who:"Веде: Софія Стоянович. Долучається: Керівник з розвитку",
+   res:"Не менше 4 системних інфопартнерств і 8 партнерських матеріалів до кінця 2028.",
+   now:"Колаборації з блогерками «Бути жінкою» (№99), листи партнерам про Форум. Бази і стратегії немає."},
+  {c:"С5.2.5",t:"Просування внутрішніх експертів ССС",s:"start",
+   q:{2:"База внутрішніх експертів і профайли",3:"Тематичні напрями просування",4:"Стратегія просування експертів",5:"Тестовий період (колонки, подкасти), вимір результатів"},
+   who:"Веде: Медіа-менеджер. Долучається: Керівник з розвитку",
+   res:"База експертів, напрями, стратегія і тестовий період до кінця 2027.",
+   now:"Колонки керівниць і експерток (№12, №63–66, №86), виступ В. Вершиніної в ООН. Бази експертів і профайлів немає."},
+  {c:"С5.2.6",t:"Стратегія адвокаційних комунікацій",s:"start",
+   q:{3:"Політика адвокаційних комунікацій: національний рівень",4:"Політика: місцевий рівень (Ради ВПО)"},
+   who:"Веде: Керівник з розвитку + директорка з адвокації",
+   res:"Політики комунікації адвокаційних кампаній на національному і місцевому рівнях.",
+   now:"Адвокаційні матеріали і новини коаліції (№8, №123), роз'яснення закону про ВПО для громад (№62). Політики немає."},
+  {c:"С5.2.7",t:"Щорічна статус-перевірка документів і стратегії",s:"plan",
+   q:{1:"Щорічна статус-перевірка (грудень)",5:"Щорічна статус-перевірка (грудень)",9:"Щорічна статус-перевірка (грудень)"},
+   who:"Веде: Керівник з розвитку. Долучається: Ольга Іванова",
+   res:"Оновлена стратегія, узгоджена з командою і менеджерами.",
+   now:"Перша перевірка — у грудні; стратегію презентовано 02.10 (№29), розбивка на задачі не завершена (№1)."},
+  {c:"С5.3",t:"Комунікаційний аудит конкурентів",s:"none",
+   q:{1:"Список організацій, критерії, аудит і презентація Дирекції (грудень)"},
+   who:"Веде: Керівник з розвитку",
+   res:"Результати використано для позиціонування і ключових повідомлень.",
+   now:"У трекері задачі немає — не почато (строк — грудень)."},
+  {c:"С5.4",t:"Загальнофондові (брендові) комунікації",s:"part",
+   q:{1:"Аналіз поточних фондових комунікацій; тематичні лінії, джерела інфоприводів, рубрикатор; розподіл каналів, документ, погодження з Дирекцією (грудень)",5:"Вимір частки фондового контенту",9:"Вимір частки фондового контенту"},
+   who:"Веде: Контент-менеджер (сайти і SMM) + Керівник з розвитку",
+   res:"Затверджений документ і рубрикатор; частка фондового контенту зростає.",
+   now:"Огляд «Що ми розповіли світу» (№56), дописи до дат (№122), дописи FB за рубриками (№53). Аналізу і рубрикатора ще немає."}
+ ]},
+ {grp:"6. Аудиторна аналітика та інфраструктура каналів", items:[
+  {c:"С6.1",t:"Професійна фотосесія директорок і експерток",s:"check",
+   q:{1:"Фотосесія на IV Форумі (жовтень) — перевірити виконання"},
+   who:"Веде: Надія Заславська + відповідальна за Форум",
+   res:"Фотосесія за участі не менше 90% директорок і експерток.",
+   now:"У трекері задачі немає — уточнити, чи відбулася фотосесія на IV Форумі (21–22.10)."},
+  {c:"С6.2",t:"Меседж-бокс для кожної цільової аудиторії",s:"part",
+   q:{1:"Меседж-бокси для кожної ЦА, Tone of Voice",2:"Презентація і тренінг для команди (січень)"},
+   who:"Веде: Керівник з розвитку. Долучаються: Анна Борисова, Олександр Винокур, Софія Стоянович, HR-відділ",
+   res:"Єдиний документ про тон і ключові повідомлення; тренінг для команди в січні 2027.",
+   now:"Аудиторії й меседжі для каналів у навчанні з К. Дубнюк (№117), розділ «Голос, тон» у Стандартах (№84). Меседж-боксів ще немає."},
+  {c:"С6.3",t:"Сегментація каналів під аудиторії",s:"part",
+   q:{3:"Матриця «аудиторія–повідомлення–канал», пріоритетні канали (травень)",4:"Сегментація в тестовому режимі",5:"Сегментація в тестовому режимі, підсумок"},
+   who:"Веде: Олександр Винокур. Долучається: Контент-менеджер (сайти і SMM)",
+   res:"Матриця до кінця травня 2027; комунікація за сегментами в тестовому режимі до кінця 2027.",
+   now:"Розділ «Канали: аудиторії, фокуси, формати» у Стандартах (№84). Матриці немає."},
+  {c:"С6.4",t:"Аудит і оновлення сайту",s:"base",
+   q:{1:"Аудит актуальності, структури й навігації, форматів; план змін (прототипи нової верстки готові)",2:"Впровадження змін (березень)"},
+   who:"Веде: Контент-менеджер (сайти і SMM). Долучаються: Софія Стоянович, менеджер розвитку спільноти Рад ВПО",
+   res:"Зміни на сайті впроваджено до кінця березня 2027.",
+   now:"Значну частину зроблено: прототипи сайту 2026 (№13, №91), сторінки проєктів (№70, №93, №95), «Про Ради ВПО» (№90), прототипи Порталу (№92). Далі: перенесення прототипів на сайт, рішення щодо кольорів (№54)."},
+  {c:"С6.5",t:"SEO та AEO для сайту ССС і Порталу Рад ВПО",s:"part",
+   q:{1:"ТЗ для підрядника (аудит і зміни)",2:"Оптимізація паралельно з оновленням сайту"},
+   who:"Веде: Контент-менеджер (сайти і SMM)",
+   res:"Залучений підрядник вніс зміни за ТЗ, синхронно з оновленням сайту.",
+   now:"Для Порталу: Serpstat погоджено, тест розпочато; підрядник Google Ad Grants погоджений (№119). ТЗ на SEO/AEO для sss-ua.org немає."},
+  {c:"С6.6",t:"Аудит соцмереж",s:"start",
+   q:{1:"Перевірка профілів, перелік оновлень",2:"Внесення змін, синхронізація зі SMM-стратегією (березень)"},
+   who:"Веде: Контент-менеджер (сайти і SMM). Долучається: Ганна Панахно",
+   res:"Профілі оновлено до кінця березня 2027.",
+   now:"Дописи FB за місяць переоформлено за рубриками (№53). Аудиту профілів немає (строк був — вересень)."},
+  {c:"С6.7",t:"Політика залучення зовнішніх фахівців (таргетолог, PR-агенція)",s:"none",
+   q:{3:"Критерії та процедура залучення (після затвердження структури)"},
+   who:"Веде: Керівник з розвитку. Долучається: Надія Заславська",
+   res:"Процедура після змін в оргструктурі.",
+   now:"У трекері задачі немає — чекає затвердження структури."},
+  {c:"С6.8",t:"Опитування впізнаваності бренду ССС (2026 і 2028)",s:"none",
+   q:{1:"Анкета з MEL, базова хвиля",2:"Аналіз, врахування в меседж-боксах і контент-плануванні",9:"Повторна хвиля, порівняльний звіт"},
+   who:"Веде: MEL-відділ + Контент-менеджер (сайти і SMM). Долучається: менеджер розвитку спільноти Рад ВПО",
+   res:"Базові значення до кінця 2026; порівняльний звіт до кінця 2028.",
+   now:"У трекері задачі немає — не почато (анкета з MEL — до кінця 2026)."},
+  {c:"С6.9",t:"Базові показники залученості по всіх каналах",s:"part",
+   q:{1:"Метрики, базові значення, дашборд, відповідальний",2:"Квартальний зріз",3:"Квартальний зріз",4:"Квартальний зріз",5:"Квартальний зріз",6:"Квартальний зріз",7:"Квартальний зріз",8:"Квартальний зріз",9:"Квартальний зріз"},
+   who:"Веде: Контент-менеджер (сайти і SMM) + MEL-відділ",
+   res:"Базові значення в одному дашборді до кінця 2026; щоквартальні зрізи до 2028.",
+   now:"Є разові дані: Google Analytics сайту (24.09), 8,7 тис. користувачів Порталу у вересні, 108 матеріалів за жовтень, 23 розсилки SendPulse за 2 місяці. Єдиного дашборду ще немає."}
+ ]}
+];
+const allTasks = RM.flatMap(g => g.items.map(i => ({...i, grp:g.grp})));
+let stFilter = null;
+function renderFilters(){
+  const counts = {}; allTasks.forEach(t => counts[t.s]=(counts[t.s]||0)+1);
+  const el = document.getElementById("st-filters");
+  el.innerHTML = `<button type="button" class="chip-btn" data-s="" aria-pressed="${stFilter===null}">Усі <span class="num">${allTasks.length}</span></button>` +
+    Object.keys(ST).filter(k=>counts[k]).map(k=>`<button type="button" class="chip-btn ${ST[k].c}" data-s="${k}" aria-pressed="${stFilter===k}"><span class="dot"></span>${ST[k].l} <span class="num">${counts[k]}</span></button>`).join("");
+  el.querySelectorAll("button").forEach(b=>b.onclick=()=>{stFilter=b.dataset.s||null;renderFilters();renderDir();renderQ();});
+}
+function renderDir(){
+  document.getElementById("rm-dir").innerHTML = RM.map(g=>{
+    const its = g.items.filter(i=>!stFilter||i.s===stFilter);
+    if(!its.length) return "";
+    return `<div class="group"><h3>${esc(g.grp)}</h3>${its.map(i=>`
+      <details class="task"><summary><span class="code">${i.c}</span><span class="t">${esc(i.t)}<small>${esc(i.who.split(".")[0])}</small></span><span class="pill ${ST[i.s].c}">${ST[i.s].l}</span></summary>
+      <div class="body">
+        <div class="full"><h4>Стан на 12.11</h4><p>${esc(i.now)}</p></div>
+        <div class="full"><h4>Кроки за кварталами</h4><div class="qline">${Object.entries(i.q).map(([k,v])=>`<span><b>${QN[k]}</b>${esc(v)}</span>`).join("")}</div></div>
+        <div><h4>Хто відповідає</h4><p>${esc(i.who)}</p></div>
+        <div><h4>Очікуваний результат</h4><p>${esc(i.res)}</p></div>
+      </div></details>`).join("")}</div>`;
+  }).join("") || `<p class="empty">Немає напрямів із таким станом.</p>`;
+}
+function renderQ(){
+  const cols = [[1,"4 кв 2026","зараз"],[2,"1 кв 2027",""],[3,"2 кв 2027",""],[4,"3 кв 2027",""],[5,"4 кв 2027",""],[[6,7,8,9],"2028",""]];
+  document.getElementById("rm-q").innerHTML = `<div class="quarters">${cols.map(([qs,name,tag])=>{
+    const ks = Array.isArray(qs)?qs:[qs];
+    const rows=[]; allTasks.forEach(t=>{ if(stFilter&&t.s!==stFilter) return; ks.forEach(k=>{ if(t.q[k] && !(Array.isArray(qs) && /Квартальний зріз|Оновлення бази/.test(t.q[k]) && rows.some(r=>r.c===t.c))) rows.push({c:t.c,v:t.q[k]}); }); });
+    return `<div class="qcol ${tag?"now":""}"><h3>${name}<small>${tag||rows.length+" віх"}</small></h3><ul>${rows.map(r=>`<li><span class="code">${r.c}</span><span>${esc(r.v)}</span></li>`).join("")||"<li>—</li>"}</ul></div>`;
+  }).join("")}</div>`;
+}
+const vDir=document.getElementById("v-dir"), vQ=document.getElementById("v-q");
+function setView(q){vDir.setAttribute("aria-pressed",!q);vQ.setAttribute("aria-pressed",q);document.getElementById("rm-dir").hidden=q;document.getElementById("rm-q").hidden=!q;try{localStorage.setItem("rmView",q?"q":"d")}catch(e){}}
+vDir.onclick=()=>setView(false); vQ.onclick=()=>setView(true);
+renderFilters(); renderDir(); renderQ();
+try{ if(localStorage.getItem("rmView")==="q") setView(true) }catch(e){}
+
+/* ---------- Блоки ---------- */
+const BLOCKS = [
+ ["Управління відділом","Стратегія, оргструктура, вакансії, хендовери, зустрічі з PM і керівництвом, підсумковий звіт",13,3,"Керівник з розвитку: веде проєкт УВКБ ООН, запускає процеси, відбирає і інтегрує нових колег. До рішення — О. Іванова разом з HR"],
+ ["Контент і погодження","Новини й історії на сайт, пости у Facebook, Instagram, LinkedIn, матеріали Рад ВПО для громад, погодження матеріалів",14,4,"Контент-менеджер (сайти і SMM) — Надія Заславська: розміщення, верстка з AI, LinkedIn (+1000 цільових підписників за рік). Пости й матеріали на сайті — поступово колега з нових проєктів. Статті й інтерв'ю в громадах — автори Юрій Патиківський і Максим. Проєктні фахівці — матеріали своїх проєктів"],
+ ["Сайт і платформи","Сторінки проєктів, нова верстка 2026, сайт і Портал Рад ВПО, ТЗ розробникам",20,2,"Контент-менеджер (сайти і SMM); розміщення і верстка з AI — Надія Заславська; Портал Рад ВПО — новий менеджер розвитку спільноти Рад ВПО"],
+ ["Дизайн і бренд","Брендбук на сайті й у соцмережах, буклети, брошури, плакати, фото- й лого-банк",10,3,"Ольга Різниченко (брендбук, 20 питань); рішення щодо кольорів сайту — директорки; друк — фахівці проєктів (ACJR — Софія Стоянович)"],
+ ["Процеси й інструменти","Трекер і форма заявок, Навігатор, Стандарти й політика, 3 фокуси, п'ятничні зустрічі, огляд «Що ми розповіли світу»",6,0,"Керівник з розвитку; ритм команди (3 фокуси, п'ятниці) і внутрішня розсилка; задачі — через пошту з автоматичним трекером"],
+ ["Колонки й адвокація керівництва","Колонки керівниць і експерток на сайт і в медіа, супровід виступів",8,4,"Медіа-менеджер (Антоніна); тексти — автори статей (Юрій Патиківський, Максим). До їхнього входу — Дар'я Гончарова (колонки А. Борисової та О. Суліми)"],
+ ["Медіа, події та відео","Висвітлення форумів і подій, пресрелізи, ефіри, відео для донорів",6,2,"Медіа-менеджер (Антоніна) + відеомейкер. Поточне: відео BMZ і ефір 12.11 — Олександр Винокур"],
+ ["Звітність, розсилки, навчання команди","Річний звіт, звіти для грантів, облік публікацій і таргету, розсилки SendPulse, тренінги, ліцензії й інструменти",11,3,"Звітність — менеджери напрямів; УВКБ ООН — Керівник з розвитку (до призначення — Дарія Гончарова); розсилки: підсумки IV Форуму — Ганна Панахно, для Рад ВПО — менеджер розвитку спільноти Рад ВПО (до призначення — Ганна Панахно); навчання — Керівник з розвитку + HR-відділ"]
+];
+document.getElementById("blocks").innerHTML = BLOCKS.map(b=>`<tr><td class="blk">${esc(b[0])}</td><td>${esc(b[1])}</td><td class="cnt">${b[2]} / <b>${b[3]}</b></td><td>${esc(b[4])}</td></tr>`).join("");
+
+/* ---------- Задачі в роботі ---------- */
+const WORK = [
+ [85,"Передача напрацювань і процесів комунікаційного відділу О. Івановій","Світлана Сом","20.11.2026",false,"Зробити таблицю фактичного навантаження й результатів команди; написати план тимчасового розподілу відповідальності після 20.11"],
+ [88,"NRC: звіт про роботу з радами ВПО і контент-плани рад на 2027","Світлана Сом","16.11.2026",false,"Написати звіт до 16.11; зробити таблицю контент-планів рад на 2027"],
+ [87,"Портал Рад ВПО 2027: напрямки розвитку для заявки","Наталя Богданець","17.11.2026",false,"Написати розділ про напрями розвитку Порталу для заявки"],
+ [51,"Ефір «Третій сектор» на телеканалі «Київ» / радіо Київ 98FM","Олександр Винокур","12.11.2026",false,"Підготувати тези для спікерки; пост-анонс і пост із записом ефіру"],
+ [48,"Вакансія фахівця/чині з комунікацій («Голос змін») — співбесіди","Світлана Сом","04.11.2026",true,"Написати пост про вакансію для соцмереж"],
+ [50,"BMZ: відео-подяка партнерській організації (Харків)","Олександр Винокур","06.11.2026",true,"Сценарій відео-подяки до 15 секунд; зняти, змонтувати, пост з відео"],
+ [57,"Зустріч із PM Ігорем Кабатом щодо комунікацій проєктів","Світлана Сом","06.11.2026",true,"Зробити таблицю комунікаційних потреб його проєктів"],
+ [53,"Брендбук у соцмережах: 20 питань до розробниці","Світлана Сом","",false,"Шаблони макетів: піктограми, каруселі, кобрендинг з донорами"],
+ [54,"Адаптація брендбука на сайті (головна, проєкти, новини)","Світлана Сом","",false,"Погодити кольори з колегами; перенести затверджений дизайн на сторінки сайту"],
+ [55,"Розсилка підсумків IV Форуму Рад ВПО (SendPulse)","Ганна Панахно","",false,"Текст розсилки про посилення впливу рад; фото, виходи в медіа і рілз; надіслати"],
+ [65,"Колонка про дослідження (О. Суліма)","Світлана Сом","",false,"Написати колонку про дослідження; інфографіка з результатами"],
+ [76,"ACJR: плакати ГЗН і 4 скриньки для відгуків","Софія Стоянович","",false,"Макети плакатів ГЗН і макет для 4 скриньок"],
+ [86,"Колонки колег (PM) для сайту ССС","Юрій Патиківський","",false,"Відредагувати колонку С. Калініна, опублікувати колонки, пости-анонси"],
+ [89,"Проєкт для українців у Польщі: оновити публікації для набору учасників","Надія Заславська","",false,"Ще раз поширити пост, щоб дійти до 20 реєстрацій (12.11 — 14 з 20)"],
+ [98,"Від голосу до змін: старт комунікації проєкту (пресреліз, друк, пости, історії)","Інесса Курінна","",false,""],
+ [99,"«Бути жінкою»: соцмережі, інфлюенсери і гра на IV Форумі Рад ВПО","Інесса Курінна","",false,""],
+ [117,"Навчання з комунікацій з К. Дубнюк (заняття №2 і №3)","Не визначено","",false,""],
+ [119,"Портал Рад ВПО: ТЗ, голосування, Google Ad Grants, публікації","Наталя Богданець","",false,""]
+];
+let wf="all";
+function renderWork(){
+  const late=WORK.filter(w=>w[4]).length, dated=WORK.filter(w=>w[3]&&!w[4]).length;
+  const f=document.getElementById("w-filters");
+  const opts=[["all","Усі",WORK.length],["late","Прострочені",late],["dated","Зі строком",dated]];
+  f.innerHTML=opts.map(o=>`<button type="button" class="chip-btn" data-f="${o[0]}" aria-pressed="${wf===o[0]}">${o[1]} <span class="num">${o[2]}</span></button>`).join("");
+  f.querySelectorAll("button").forEach(b=>b.onclick=()=>{wf=b.dataset.f;renderWork();});
+  const list=WORK.filter(w=>wf==="all"||(wf==="late"&&w[4])||(wf==="dated"&&w[3]&&!w[4]));
+  document.getElementById("work").innerHTML=list.map(w=>`<div class="wi ${w[4]?"late":""}"><span class="no">№${w[0]}</span><div>
+    <h4>${esc(w[1])}</h4>
+    <p class="meta">Веде: ${esc(w[2])}${w[3]?` · <span class="dl ${w[4]?"late":""}">дедлайн ${w[3]}${w[4]?" — прострочено":""}</span>`:""}</p>
+    ${w[5]?`<p class="nx"><b>Наступний крок</b><br>${esc(w[5])}</p>`:""}</div></div>`).join("");
+}
+renderWork();
+const CH=[["Facebook",40],["Instagram",27],["Сайт",20],["Ради ВПО",12],["LinkedIn",9]];
+document.getElementById("bars").innerHTML=CH.map(c=>`<div class="bar"><span>${c[0]}</span><i style="width:${c[1]/40*100}%"></i><span class="v">${c[1]}</span></div>`).join("");
+
+/* ---------- Посилання ---------- */
+const D="https://docs.google.com/document/d/", S="https://docs.google.com/spreadsheets/d/";
+const LINKS=[
+ {g:"Головні таблиці керівництва",key:true,items:[
+  ["Трекер «Задачі_фонду» — задачі і плани",T,"статуси, дедлайни, потрібні рішення"],
+  ["«Блоки задач» — хто веде після 20.11",S+"1xZzGXf0uM-H08AP-6IiT2Sbl1jYueXwJm9l438D5InA/edit?gid=555001","розподіл 88 задач на 8 блоків"],
+  ["Огляд трекера",S+"1xZzGXf0uM-H08AP-6IiT2Sbl1jYueXwJm9l438D5InA/edit?gid=853143665","зведення за статусом і дедлайнами"],
+  ["Заявки від колег на ком-задачі",S+"1xZzGXf0uM-H08AP-6IiT2Sbl1jYueXwJm9l438D5InA/edit?gid=1233959484","що приходить через форму заявок"],
+  ["Декомпозиція стратегії — операційні завдання",S+"1yPF9rNu2KzvLI_b_WUKI5XsNWBwoLG4a4MQyhLZEtCM/edit?gid=1524788926","кроки за кварталами до 2028"],
+  ["SSS KPI",S+"1yPF9rNu2KzvLI_b_WUKI5XsNWBwoLG4a4MQyhLZEtCM/edit?gid=70049489","метрики впізнаваності і залученості"],
+  ["Карта комунікацій (канали)",S+"1yPF9rNu2KzvLI_b_WUKI5XsNWBwoLG4a4MQyhLZEtCM/edit?gid=302976436","канали, аудиторії, відповідальні"],
+  ["Дії команди вересень–жовтень і оцінка часу",S+"1zbzzx8kRUBKnOt8B5NRpyd3w7-SIbn8FToGrkNr43AM/edit?gid=100","зайнятість і результати по кожному"],
+  ["Стратегія (папка)","https://drive.google.com/drive/u/1/folders/1_kTaoohpM-V2HxWF-QCFXkQokuFL1bwV","комунікаційна стратегія і презентація"]
+ ]},
+ {g:"Стандарти і правила",items:[
+  ["Комунікаційні стандарти ССС",D+"1N4fEoNgNshmLV7yPfst8yJDMgF4zE4pRBIAEOzjpbQE/edit","порядок роботи, чеклісти, промпти"],
+  ["Комунікаційні стандарти бренду",D+"1LNMPWFfD53wXS6y8UByohUG2tHgJj5eDA2LcvKRZDjA/edit","аудиторії, тон, канали, кризові комунікації"],
+  ["Редакційна політика",D+"1uK4irdeQsjm34asshxncXNEGT2V5GOWL34nF7xIZOlg/edit?tab=t.xxdtnmvbkukj","мова і стиль"],
+  ["Алгоритм розміщення публікацій у соцмережах",D+"1NY40j0xN8wWM3tWAHutRTNMVDBBE3uYSgWEBEtT1QQg/edit",""],
+  ["Гайдлайни контенту",D+"1YzOgwsGoY8cJEcaGfgacsF1D47yKx-JS11uz1AOJGlI/edit",""],
+  ["Рекомендації щодо фотозвітності",D+"1qQfJri3T32QS1EN_QYXnH1RUGvD0uDU4SAXtJ7kjhPU/edit","фото для донорів"],
+  ["Органіграма комунікаційного підрозділу",D+"107FjjUEmClhpPYFjnxxXOSjRxzLRjWZjnNvue5XklpQ/edit",""]
+ ]},
+ {g:"Планування контенту",items:[
+  ["Контент-план фонду",S+"1hVJFVuCjbskLtWw6kMlFP1WIRcsWLSr3zE_6wqRO1nc/edit?gid=2132867947","по місяцях, з виконавцями і донорами"],
+  ["Таблиця бронювання постів",S+"1B91RhjaDrtg0f_BZh5rJFkr54wJuus6eOo6bVM_JI9k/edit?gid=1486490397",""],
+  ["Алгоритм висвітлення подій",S+"1kWCS1avl-dakcZ8IYR8OTnCSHNjEBAMK/edit",""],
+  ["Шаблони постів за рубриками",D+"1CLW5rseD0fku3O2L1tXLvQidawoq_56HAYbMRsSKO2E/edit",""],
+  ["План висвітлення IV Форуму Рад ВПО",D+"17TtPONqCY964JX0SEYPhnMO1mW-FMG7jdUFkPruhyro/edit","зразок плану події"],
+  ["Матриця задач команди на IV Форум",S+"1hxh3d3CsVT0xGAHRHV_jQeXfkj-eTeGPPR3d_JIL4jY/edit","зразок розподілу ролей"]
+ ]},
+ {g:"Бренд і візуал",items:[
+  ["Брендбук і шаблони (Canva)","https://canva.link/aevl6v4v3eg0bgj",""],
+  ["Відео з поясненнями дизайнерки","https://youtu.be/9t7v0dg1B3o",""],
+  ["Шаблони візуалів для соцмереж",D+"104qjqJr5DzpbYNk40V5T8TqiuRZ13rT7rPgMKg9IkCM/edit","розміри під кожну платформу"],
+  ["Логотипи партнерів і для зовнішніх розміщень","https://drive.google.com/drive/u/1/folders/106UtJWP1jIaLS-ICsAw0kWeDh1RE-IjR","папка"]
+ ]},
+ {g:"Медіа, дані і звіти",items:[
+  ["Медіакарта",S+"1GZWQDPD1DOSDxAIfIQo6o3oMVWNHiR1E/edit","контакти журналістів і медіа"],
+  ["Аналітична записка про Портал Рад ВПО",D+"1d_y9cRiKLbXyXt6y1WR0il3A5YUGDaZWPcNXbgwLwHA/edit",""],
+  ["Зразок адвокаційної колонки («Українська правда. Життя»)","https://life.pravda.com.ua/columns/vid-vpo-do-rushijiv-zmin-yak-dosvid-pereselenciv-mozhe-pracyuvati-na-rozvitok-gromad-312685/",""],
+  ["Сайт фонду: сторінка колонок","https://sss-ua.org/kolonky-prototyp-2026/",""]
+ ]},
+ {g:"Канали фонду",items:[
+  ["Сайт фонду","https://sss-ua.org/","Надія Заславська, Олег Фурса, Ігор Сташкевич"],
+  ["Портал Рад ВПО","https://radyvpo.org.ua/","Наталія Богданець"],
+  ["Facebook","https://www.facebook.com/stabilizationsupportservices/","Надія Заславська"],
+  ["Instagram","https://www.instagram.com/stabilizationsupportservices","Надія Заславська"],
+  ["LinkedIn","https://www.linkedin.com/company/86622856/","Надія Заславська"],
+  ["Telegram","https://t.me/sss_ukraine","Надія Заславська"],
+  ["Facebook Рад ВПО","https://www.facebook.com/IDPCouncils/","Надія Заславська"],
+  ["YouTube","https://www.youtube.com/channel/UC3nkNFUE6uUldRGf1KTfxqw","для Рад ВПО і установ соцзахисту"],
+  ["Linktree фонду","https://sss-ua.org/links-hub/",""]
+ ]},
+ {g:"Навчання команди",items:[
+  ["Як зробити крутезний контент для фонду","https://drive.google.com/file/d/1yy2_pf6I3ZqzzXjnzMADgqZ3fsVSdej0/view?usp=sharing","презентація"],
+  ["Мобільна фотографія для громадських ініціатив","https://www.canva.com/design/DAHHtC5zVtk/dbqAQq42hJWQap10d4qUSg/edit","курс у Canva"],
+  ["Монтаж відео з Claude","https://drive.google.com/file/d/1vcoMBNcHcPFziwb0Iw_Cld0Mg5O9jaiP/view","посібник, PDF"],
+  ["Nonprofit Academy від Inweb","https://inweb-for-nonprofits.academyocean.com/auth/sign/in",""],
+  ["Інші навчальні матеріали","https://drive.google.com/drive/folders/1yEiYIJYrMaH9p_3XjnAzYYBtS0pO6kd8","папка"]
+ ]}
+];
+function renderLinks(q){
+  q=(q||"").trim().toLowerCase(); let n=0;
+  document.getElementById("links").innerHTML=LINKS.map(g=>{
+    const its=g.items.filter(i=>!q||(i[0]+" "+i[2]+" "+g.g).toLowerCase().includes(q)); n+=its.length;
+    if(!its.length) return "";
+    return `<div class="lg ${g.key?"key":""}"><h3>${esc(g.g)}</h3><ul>${its.map(i=>`<li><a href="${esc(i[1])}" target="_blank" rel="noopener">${esc(i[0])}${i[2]?`<small>${esc(i[2])}</small>`:""}</a></li>`).join("")}</ul></div>`;
+  }).join("");
+  document.getElementById("no-links").hidden=n>0;
+}
+renderLinks(""); document.getElementById("q").addEventListener("input",e=>renderLinks(e.target.value));
+
+/* active nav */
+const navLinks=[...document.querySelectorAll(".nav a")];
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id))}})},{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("main section").forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
