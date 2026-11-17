@@ -218,8 +218,7 @@ td.ex{color:var(--muted);font-size:.86rem}
 .org-top .dir{max-width:200px;background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .org-top::after{content:"";width:2px;height:22px;background:var(--line)}
 .org-top .dir::after{content:"";display:block}
-.org-top .head{margin-top:14px;background:var(--brand);color:var(--brand-ink);border-color:var(--brand);position:relative}
-.org-top .head::before{content:"";position:absolute;left:50%;top:-15px;width:2px;height:14px;background:var(--line)}
+.org-top .head{background:var(--brand);color:var(--brand-ink);border-color:var(--brand);position:relative}
 .org-top .head small{color:color-mix(in srgb,var(--brand-ink) 80%,transparent)}
 .org-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;border-top:2px solid var(--line);padding-top:18px}
 .ocol{display:grid;gap:8px;align-content:start;min-width:0}
@@ -646,7 +645,7 @@ footer p+p{margin-top:8px}
     </details>
 
     <h3 style="margin-top:40px">Функція 2. Будувати спільноту рад</h3>
-    <p class="lead" style="margin-top:8px">Новини самі не з'являться, якщо з радами немає живого зв'язку. Тому в структурі відділу є окрема позиція — менеджер розвитку спільноти Рад ВПО.</p>
+    <p class="lead" style="margin-top:8px">Новини самі не з'являться, якщо з радами немає живого зв'язку. Тому в пропозиції щодо посад від 05.11 для цього передбачено окрему людину — менеджера розвитку спільноти Рад ВПО.</p>
     <div class="skills" style="margin-top:18px">
       <div class="skill"><h3>Дзвонити головам рад</h3><p>Зібрати фото і кілька речень про подію телефоном, дізнатися, де рада насправді спілкується.</p><p class="how">З аналітичної записки про Портал.</p></div>
       <div class="skill"><h3>Пости у співавторстві</h3><p>Ради і громади публікують разом із фондом (collab). Комунікаційники вчать партнерів цьому.</p><p class="how">Стандарти, розділ 8.</p></div>
@@ -858,34 +857,43 @@ footer p+p{margin-top:8px}
     <div class="sec-head">
       <p class="eyebrow"><span class="sec-num">10</span> · Оргструктура</p>
       <h2>Структура відділу: хто за що відповідає <span class="tag prop">пропозиція</span></h2>
-      <p class="lead">Структуру комунікаційного підрозділу розробила Світлана Сом. Вона розводить управління, проєктні напрями і спільні функції, щоб комунікаційники не робили все одночасно. О. Іванова 10.11 зазначила, що це основа для аналізу, а не остаточне рішення.</p>
+      <p class="lead">Органіграму комунікаційного підрозділу розробила Світлана Сом. Вона розводить три проєктні напрями і спільні функції всього підрозділу, щоб комунікаційники не робили все одночасно. Кожен напрям фінансується зі своїх проєктів, спільні функції працюють на весь фонд. О. Іванова 10.11 зазначила, що напрацювання щодо структури — основа для аналізу, а не остаточне рішення.</p>
     </div>
 
-    <div class="org" aria-label="Схема структури">
+    <div class="org" aria-label="Органіграма комунікаційного підрозділу">
       <div class="org-top">
-        <div class="node dir">Директорки</div>
-        <div class="node head">Керівник з розвитку<small>стратегія і бренд, управління, фінальне редагування, виступи · <b>нова вакансія</b></small></div>
+        <div class="node head">Керівник підрозділу<small>фінансування: УВКБ ООН + доплата з адмін бюджету · одна людина: керівник підрозділу і менеджер УВКБ ООН</small></div>
       </div>
       <div class="org-cols">
-        <div class="ocol"><h4>УВКБ ООН</h4><div class="node">Фахівець з комунікацій<small>збір інформації, інтерв'ю, новини, пости, погодження з донором</small></div></div>
-        <div class="ocol"><h4>Гуманітарний напрям</h4><div class="node mgr">Менеджер з комунікацій<small>сам веде 2 великі проєкти, план супроводу, завдання фахівцям</small></div><div class="node">3 фахівці з комунікацій<small>збір інформації по портфелю, інтерв'ю, первинні тексти; старт з 50% зайнятості</small></div></div>
-        <div class="ocol"><h4>Інші проєкти</h4><div class="node mgr">Менеджер з комунікацій<small>планування, звіти, погодження з донором</small></div><div class="node">Фахівець з комунікацій<small>виїзди, тексти, фото, архів</small></div><p class="src">відкривається, коли з'являться потреба і бюджет</p></div>
-        <div class="ocol shared"><h4>Спільні функції</h4>
-          <div class="node">Контент-менеджер<small>сайти і SMM, контент-календар, аналітика</small></div>
-          <div class="node">Відеомейкер / продакшн<small>рілси, документальні відео, поліграфія</small></div>
-          <div class="node">Медіа-менеджер<small>робота з медіа, прес-релізи, пітчі</small></div>
-          <div class="node">Автори статей (2)<small>інтерв'ю і матеріали в громадах для всіх напрямів</small></div>
-          <div class="node">Менеджер спільноти Рад ВПО<small>матеріали від рад, залучення голів рад · <b>нова вакансія</b></small></div>
+        <div class="ocol"><h4>УВКБ ООН</h4><p class="src">фін.: УВКБ ООН</p>
+          <div class="node mgr">Керівник<small>у ролі менеджера напряму</small></div>
+          <div class="node">Фахівець</div>
+          <div class="node">Асистент</div>
+        </div>
+        <div class="ocol"><h4>Гуманітарний</h4><p class="src">фін.: гуманітарні проєкти</p>
+          <div class="node mgr">Менеджер</div>
+          <div class="node">Фахівець 1</div>
+          <div class="node">Фахівець 2</div>
+        </div>
+        <div class="ocol"><h4>Інші проєкти</h4><p class="src">фін.: бюджет проєкту · відкривається за потребою</p>
+          <div class="node mgr">Менеджер</div>
+          <div class="node">Фахівець</div>
+        </div>
+        <div class="ocol shared"><h4>Спільні функції</h4><p class="src">весь підрозділ</p>
+          <div class="node">SMM<small>фін.: УВКБ ООН</small></div>
+          <div class="node">Сайти<small>фін.: УВКБ ООН</small></div>
+          <div class="node">Відео / дизайн<small>фін.: УВКБ ООН</small></div>
+          <div class="node">Медіа<small>фін.: адмін бюджет</small></div>
         </div>
       </div>
     </div>
     <div class="facts" style="margin-top:20px">
-      <div class="fact"><b style="color:var(--brand)">13</b><span>позицій у 5 напрямах</span></div>
-      <div class="fact"><b style="color:var(--brand)">2</b><span>нові вакансії: керівник з розвитку і менеджер спільноти Рад ВПО</span></div>
-      <div class="fact"><b style="color:var(--brand)">10</b><span>позицій пропонується закрити людьми з нинішньої команди</span></div>
-      <div class="fact"><b style="color:var(--brand)">160 год</b><span>на місяць = 100% зайнятості: ставка визначає час, на який беремо колегу</span></div>
+      <div class="fact"><b style="color:var(--brand)">3</b><span>проєктні напрями: УВКБ ООН, гуманітарний, інші проєкти</span></div>
+      <div class="fact"><b style="color:var(--brand)">4</b><span>спільні функції на весь підрозділ: SMM, сайти, відео/дизайн, медіа</span></div>
+      <div class="fact"><b style="color:var(--brand)">1</b><span>людина поєднує керівника підрозділу і менеджера УВКБ ООН</span></div>
+      <div class="fact"><b style="color:var(--brand)">Проєкти</b><span>оплачують свої напрями; медіа — з адмін бюджету</span></div>
     </div>
-    <p class="note">Чому це важливо для «голосу фонду»: у структурі з'являються окремі <b>автори статей</b> і <b>медіа-менеджер</b>. Отже, інтерв'ю в громадах, колонки й пітчинг у медіа стають чиєюсь роботою, а не тим, що проєктний комунікаційник робить у вільний час.</p>
+    <p class="note">Як читати схему: у кожному напрямі менеджер (жовта смужка) планує і ставить завдання, фахівці збирають інформацію і пишуть. Спільні функції — SMM, сайти, відео/дизайн і медіа — не належать жодному проєкту і працюють на голос усього фонду. Саме медіа-функція виносить експертів назовні. Повна схема — у документі <a href="https://docs.google.com/document/d/107FjjUEmClhpPYFjnxxXOSjRxzLRjWZjnNvue5XklpQ/edit" target="_blank" rel="noopener">«Органіграма комунікаційного підрозділу SSS»</a>.</p>
 
     <h3 style="margin-top:36px;margin-bottom:12px">Норми часу: скільки реально встигає одна людина</h3>
     <div class="tbl-wrap">
