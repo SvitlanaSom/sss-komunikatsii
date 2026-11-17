@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Методичка комунікацій ССС: ритм, наради, таблиці, звіти, шлях колонки і позиціонування фонду як голосу переселенців">
+<meta name="description" content="Методичка комунікацій ССС: ритм, наради, таблиці, звіти, структура відділу, медіапортал рад ВПО, шлях колонки і позиціонування фонду">
 <title>Методичка комунікацій ССС</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -205,6 +205,40 @@ td.ex{color:var(--muted);font-size:.86rem}
 .blk-col.next li{border-left:4px solid var(--sun)}
 .blk-meta{margin-top:12px;font-size:.88rem;color:var(--muted)}
 
+/* prompt */
+.prompt{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.prompt summary{cursor:pointer;padding:14px 18px;font:700 .95rem var(--f-head);color:var(--brand)}
+.prompt .tpl{margin:0 14px 14px;max-height:420px;overflow:auto;font-size:.8rem}
+.prompt .copy{position:sticky;float:right;top:0}
+
+/* org */
+.org{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
+.org-top{display:grid;justify-items:center;gap:0}
+.org-top .node{max-width:420px;width:100%;text-align:center}
+.org-top .dir{max-width:200px;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.org-top::after{content:"";width:2px;height:22px;background:var(--line)}
+.org-top .dir::after{content:"";display:block}
+.org-top .head{margin-top:14px;background:var(--brand);color:var(--brand-ink);border-color:var(--brand);position:relative}
+.org-top .head::before{content:"";position:absolute;left:50%;top:-15px;width:2px;height:14px;background:var(--line)}
+.org-top .head small{color:color-mix(in srgb,var(--brand-ink) 80%,transparent)}
+.org-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;border-top:2px solid var(--line);padding-top:18px}
+.ocol{display:grid;gap:8px;align-content:start;min-width:0}
+.ocol h4{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.ocol.shared{background:color-mix(in srgb,var(--sprout-soft) 60%,transparent);border-radius:12px;padding:10px;margin:-10px}
+.node{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg);font-family:var(--f-head);font-weight:700;font-size:.92rem}
+.node small{display:block;font-family:var(--f-body);font-weight:400;font-size:.8rem;color:var(--muted);margin-top:3px;line-height:1.4}
+.node small b{color:var(--terra);font-weight:600}
+.node.mgr{border-left:4px solid var(--sun)}
+.qc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.qc .panel{padding:16px;display:grid;gap:8px;align-content:start}
+.qc h4{font-size:.98rem}
+.qc p{font-size:.88rem}
+.qc .esc{font-size:.82rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.funcs{columns:3;column-gap:28px;margin:0;padding-left:22px;font-size:.93rem}
+.funcs li{break-inside:avoid;padding:3px 0}
+@media (max-width:960px){.org-cols,.qc{grid-template-columns:repeat(2,minmax(0,1fr))}.funcs{columns:2}}
+@media (max-width:560px){.org-cols,.qc{grid-template-columns:minmax(0,1fr)}.funcs{columns:1}.ocol.shared{margin:0}}
+
 /* next */
 .due{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--sun-soft);border:1px solid color-mix(in srgb,var(--sun) 55%,transparent);border-radius:16px;padding:22px}
 .due .date{font-family:var(--f-head);font-weight:800;font-size:1.6rem;line-height:1;background:var(--sun);color:#1B2A18;border-radius:12px;padding:12px 14px;text-align:center}
@@ -266,12 +300,14 @@ footer p+p{margin-top:8px}
     <nav class="nav" aria-label="Розділи">
       <a href="#holos">Голос</a>
       <a href="#kolonky">Колонки</a>
+      <a href="#portal">Портал рад</a>
       <a href="#navychky">Навички</a>
       <a href="#rytm">Ритм</a>
       <a href="#narady">Наради</a>
       <a href="#tablytsi">Таблиці</a>
       <a href="#zvity">Звіти</a>
       <a href="#viddil">Відділ у дії</a>
+      <a href="#struktura">Структура</a>
       <a href="#dali">Що далі</a>
       <a href="#instrumenty">Інструменти</a>
     </nav>
@@ -403,11 +439,236 @@ footer p+p{margin-top:8px}
   </div>
 </section>
 
+<!-- 2а. ПОРТАЛ РАД ВПО -->
+<section id="portal">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow"><span class="sec-num">03</span> · Портал Рад ВПО</p>
+      <h2>Сайт рад ВПО має стати медіапорталом <span class="tag prop">пропозиція</span></h2>
+      <p class="lead">Ради — герої медіа, а писати про них має фонд. У менеджера порталу дві функції. Перша — щотижня збирати новини рад, і головний помічник у цьому Claude з готовими промптами. Друга, не менш важлива, — будувати живу спільноту рад.</p>
+    </div>
+
+    <div class="two">
+      <div class="panel sun">
+        <h3>Чому зараз портал не працює</h3>
+        <ul>
+          <li>Фонд опублікував на порталі 184 матеріали, а ради й Конгрес за два роки додали лише 4 новини.</li>
+          <li>Картки рад майже порожні: контакти є, а про те, що рада робить, нічого.</li>
+          <li>Майже 700 рад внесено двічі: у базі 1694 картки, на мапі 883, на сторінці Конгресу — «понад 800».</li>
+          <li>Модель «ради самі довантажують новини» не спрацювала: у волонтерів і працівників громад немає на це часу, а картка нічого їм не дає.</li>
+        </ul>
+      </div>
+      <div class="panel green">
+        <h3>Що пропонується</h3>
+        <ul>
+          <li>Публічні новини про ради — на сайті фонду, у форматі новинного медіа. Ради отримують видимість, а ВПО читають про себе й поширюють.</li>
+          <li>Від рад досить фото і кількох речень у телефонній розмові. Текст пише фонд.</li>
+          <li>Закрита частина порталу — для членів рад: шаблони, методички, навчання.</li>
+          <li>Мапу рад лишити відкритою, але спершу почистити від дублів.</li>
+          <li>Порядок: спершу запустити медіа на сайті фонду, і тільки потім закривати портал. Закриття погодити з УВКБ ООН і Конгресом.</li>
+        </ul>
+        <p class="src" style="margin-top:12px">Аналітична записка С. Сом «Чому Портал Рад ВПО мертвий і що з ним робити», 29.10.2026. Орієнтир — сайт Асоціації ритейлерів України, де члени асоціації є героями щоденних новин.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px">Функція 1. Як збирати новини рад щотижня</h3>
+    <div class="road" style="margin-top:22px">
+      <div class="stop"><p class="when">Пошук</p><h4>Claude шукає за промптом</h4><p>Пошук у Facebook за датою, ≈95 сторінок рад, сайти громад (*.gov.ua), сторінка IDPCouncils.</p></div>
+      <div class="stop"><p class="when">Відбір</p><h4>Тільки події</h4><p>Засідання, рішення, зустрічі з владою, ініціативи, допомога ВПО. Без статутів, анонсів і старих новин.</p></div>
+      <div class="stop"><p class="when">Таблиця</p><h4>Новина з першоджерелом</h4><p>Дата, громада, рада, заголовок, текст, посилання, фото. Нічого не вигадуємо, факти — лише з повного допису.</p></div>
+      <div class="stop"><p class="when">Сторінка</p><h4>«Новини рад» на сайті</h4><p>Картки з фото, датою, громадою й посиланням на першоджерело. Найновіша — великим блоком.</p></div>
+      <div class="stop ext"><p class="when">Поширення</p><h4>Назад до рад</h4><p>Пост у Facebook Рад ВПО, репост на сторінці громади, дайджест у розсилці.</p></div>
+    </div>
+    <div class="two" style="margin-top:26px">
+      <div class="panel">
+        <h3>Приклад: один запуск промпта</h3>
+        <p>За 2–5 листопада Claude знайшов 8 новин рад. Серед них:</p>
+        <ul style="margin-top:8px">
+          <li>«Одеська ОВА зустрілася з головами рад ВПО області»</li>
+          <li>«У Вишнівській громаді говорили про права і житло для ВПО»</li>
+        </ul>
+        <p style="margin-top:10px">Тестова сторінка стрічки — <a href="https://sss-ua.org/novyny-rad-test/" target="_blank" rel="noopener">sss-ua.org/novyny-rad-test</a>. Промпт уже оновлено до другої версії (06.11) разом із перевіркою 883 карток рад і їхніх сторінок у Facebook <span class="code">№92</span>.</p>
+      </div>
+      <div class="panel">
+        <h3>Правила роботи з Claude</h3>
+        <ul>
+          <li>Ритм — раз на тиждень, період у промпті — минулий тиждень <span class="tag prop">пропозиція</span>.</li>
+          <li>У браузері треба бути залогіненою у Facebook та в адмінці сайту. Паролі Claude не вводить.</li>
+          <li>Людина вичитує результат перед публікацією: текст від AI не виходить без другої пари очей.</li>
+          <li>Claude звітує, що відкинув і які сторінки не вдалося перевірити. Ці ради — привід подзвонити.</li>
+        </ul>
+      </div>
+    </div>
+    <details class="prompt">
+      <summary>Промпт v2: пошук новин рад ВПО і верстка стрічки — відкрити і скопіювати</summary>
+      <div class="tpl" data-tpl><button type="button" class="copy">Копіювати</button>
+Ти — редактор новинної стрічки БФ «Стабілізейшен Суппорт Сервісез» (SSS), що працює з радами ВПО (радами з питань внутрішньо переміщених осіб) при громадах, районних і обласних адміністраціях України.
+
+ПЕРІОД: з [ДД місяця РРРР] по [ДД місяця РРРР] включно.
+
+Увесь шлях (пошук → таблиця → фото → оновлення сторінки → перевірка) роби за один раз, без проміжних запитань. Питай мене лише тоді, коли треба увійти у Facebook чи адмінку.
+
+## Частина 1. Пошук новин
+
+ДЕ ШУКАТИ (у такому порядку):
+
+1. **Пошук Facebook із фільтром дати** (найнадійніше): `facebook.com/search/posts` з параметром `filters` (фільтр `creation_time`, start_day / end_day = ПЕРІОД). Запити по черзі: «рада ВПО», «рада з питань ВПО», «засідання ради ВПО», «голова ради ВПО», «координаційна рада ВПО». Гортай кожен до кінця.
+2. **Сторінки рад у Facebook зі списку нижче** — переглянь дописи за ПЕРІОД. Стрічка сторінки часто вантажиться повільно: зачекай і прокрути ще раз.
+3. **Інтернет-пошук** (WebSearch): ті самі запити + місяць і рік, + назви областей. Пріоритет — сайти громад і адміністрацій (*.gov.ua).
+4. **Сторінка фонду про ради:** https://www.facebook.com/IDPCouncils та портал https://radyvpo.org.ua/rady-vpo/ (картки рад, де вказано соцмережі).
+
+### Сторінки рад ВПО у Facebook
+
+**Обласні та при ОВА / ОДА**
+- Рада ВПО при Рівненській ОВА — https://www.facebook.com/RadaIDPRivnenshchina
+- Рада ВПО Львівщини — https://www.facebook.com/rada.idps
+- Рада ВПО при Вінницькій ОВА — https://www.facebook.com/radavpovinova
+- Рада ВПО у Харківській області — https://www.facebook.com/profile.php?id=100057078834422
+- Рада ВПО у Луганській області — https://www.facebook.com/profile.php?id=100040334508198
+- Рада ВПО у Донецькій області — https://www.facebook.com/profile.php?id=100063655299178
+- Рада з питань ВПО при Івано-Франківській ОДА — https://www.facebook.com/profile.php?id=61555396721156
+- Рада з питань ВПО при Дніпропетровській ОВА — https://www.facebook.com/profile.php?id=61553905073311
+- Рада ВПО при Полтавській ОВА — https://www.facebook.com/profile.php?id=61557684553157
+- Рада ВПО при Черкаській ОДА — https://www.facebook.com/profile.php?id=61582972334569
+- Рада ВПО Київської області — https://www.facebook.com/vpo.kyivoda
+- Рада ВПО при Запорізькій ОВА — https://www.facebook.com/profile.php?id=61553945948641
+- Рада з питань ВПО при Закарпатській ОДА-ОВА — https://www.facebook.com/profile.php?id=61589841022162
+- Рада ВПО при ХОДА — https://www.facebook.com/profile.php?id=61566853179372
+- Рада з питань ВПО при Одеській ОДА (ОВА) — https://www.facebook.com/Rada.VPO.Odesa.region
+- Рада з питань ВПО при Миколаївській ОВА — https://www.facebook.com/profile.php?id=61575064410363
+- Рада ВПО при КМВА (Київ) — https://www.facebook.com/profile.php?id=61578553768971
+
+**Районні**
+- Рада ВПО при Старобільській РДА — https://www.facebook.com/profile.php?id=61568719384901
+- Рада ВПО при Рівненській РДА — https://www.facebook.com/profile.php?id=61588824081301
+- Рада ВПО Бердичівського району — https://www.facebook.com/profile.php?id=61577438978770
+- Рада ВПО Олександрійського району — https://www.facebook.com/profile.php?id=61564088248970
+- Рада ВПО Одеського району — https://www.facebook.com/profile.php?id=61560097277055
+- Рада ВПО при Бахмутській РДА, РВА — https://www.facebook.com/profile.php?id=61593621985081
+- Рада ВПО при Рахівській РДА — https://www.facebook.com/profile.php?id=61575445671896
+- Рада з питань ВПО при Шевченківській РДА м. Києва — https://www.facebook.com/profile.php?id=61574088492915
+- Рада ВПО Оболонського району м. Києва — https://www.facebook.com/obolon.vpo
+
+**Міські, селищні, сільські**
+- Координаційна рада з питань ВПО у м. Харкові — https://www.facebook.com/radaidpkharkiv
+- Координаційна рада з питань ВПО у м. Харкові (друга сторінка) — https://www.facebook.com/profile.php?id=61568907872038
+- Консультативна рада ВПО у Запоріжжі — https://www.facebook.com/radavpo.zp
+- Рада ВПО Кривий Ріг — https://www.facebook.com/radavpo.kryvyirih
+- Координаційна рада ВПО м. Рівне — https://www.facebook.com/rada.idp.rv
+- Рада ВПО при Полтавській МТГ — https://www.facebook.com/profile.php?id=61556336235346
+- Рада ВПО у м. Дніпро — https://www.facebook.com/profile.php?id=61558701098174
+- Рада ВПО при виконкомі Чернівецької міської ради — https://www.facebook.com/profile.php?id=61551871898596
+- Рада з питань ВПО Броварської МТГ — https://www.facebook.com/profile.php?id=61556710029608
+- Рада ВПО Ірпінь — https://www.facebook.com/profile.php?id=61579442425598
+- Рада з питань ВПО при виконкомі Переяславської міської ради — https://www.facebook.com/profile.php?id=61578420503559
+- Рада ВПО при виконкомі Нікопольської міської ради — https://www.facebook.com/profile.php?id=61588259378744
+- Рада ВПО Кам'янець-Подільської МТГ — https://www.facebook.com/profile.php?id=61576464556089
+- Рада ВПО при виконкомі Дрогобицької міської ради — https://www.facebook.com/profile.php?id=61567773953579
+- Рада ВПО Бердичів — https://www.facebook.com/profile.php?id=61576414710398
+- Рада ВПО при Берегівській міській раді — https://www.facebook.com/vpo.berehove.rada
+- Рада з питань ВПО при Березнівській міській раді — https://www.facebook.com/IDPBerezneCouncil
+- Рада ВПО Сторожинецька ТГ — https://www.facebook.com/radavpostor
+- Рада ВПО Жмеринка — https://www.facebook.com/profile.php?id=61566184747697
+- Рада ВПО Богородчани — https://www.facebook.com/profile.php?id=61591772740155
+- Рада ВПО Збаразької громади — https://www.facebook.com/profile.php?id=61591631889245
+- Рада ВПО Косів — https://www.facebook.com/profile.php?id=61582389453134
+- Рада ВПО Великосеверинівської громади — https://www.facebook.com/profile.php?id=61591900666178
+- Рада ВПО м. Шепетівка — https://www.facebook.com/profile.php?id=61578128985871
+- Рада ВПО при Барській міській раді — https://www.facebook.com/profile.php?id=61553860014082
+- Рада ВПО Городенківської ТГ — https://www.facebook.com/profile.php?id=61572987746864
+- Рада ВПО Берегометської ТГ — https://www.facebook.com/profile.php?id=61579115865335
+- Рада ВПО Фонтанської сільської ради — https://www.facebook.com/profile.php?id=61569504970276
+- Рада ВПО Пустомити — https://www.facebook.com/profile.php?id=61577989443207
+- Рада ВПО Пустомити (друга сторінка) — https://www.facebook.com/profile.php?id=61578729931115
+- Рада з питань ВПО Якушинецької с/р — https://www.facebook.com/profile.php?id=61557613574225
+- Рада ВПО Кременецької громади — https://www.facebook.com/profile.php?id=61557076828169
+- Рада ВПО при Болградській міській раді — https://www.facebook.com/profile.php?id=61584140232796
+- Рада ВПО при Великокучурівській СТГ — https://www.facebook.com/profile.php?id=61588188200765
+- Самбірська Рада ВПО — https://www.facebook.com/profile.php?id=61591811897357
+- Рада ВПО Рокитне — https://www.facebook.com/profile.php?id=61575710377288
+- Рада ВПО Градизької громади (група) — https://www.facebook.com/groups/2799774347035506
+- Рада з питань ВПО Вознесенської міської громади (група) — https://www.facebook.com/groups/844481727116165
+- Рада ВПО Вільногірської громади (група) — https://www.facebook.com/groups/1803407310942643
+- Рада з питань ВПО при Хмельницькій міській раді (група) — https://www.facebook.com/groups/900548704964328
+- Рада з питань ВПО при Нікольській селищній раді (група) — https://www.facebook.com/groups/1097863974542874
+- Рада з питань ВПО м. Південноукраїнськ (група) — https://www.facebook.com/groups/1819612548541581
+- Рада з питань ВПО при Білоцерківській МР (група) — https://www.facebook.com/groups/753753469924254
+- Рада з питань ВПО Колківської громади — https://www.facebook.com/profile.php?id=61591671687940
+- Рада з питань ВПО Івано-Франківської МТГ — https://www.facebook.com/profile.php?id=61558960929968
+- Рада з питань ВПО Камінь-Каширської громади — https://www.facebook.com/profile.php?id=61587181512736
+- Рада з питань ВПО Шацької громади — https://www.facebook.com/profile.php?id=61587296796923
+- Рада з питань ВПО Горохівської громади — https://www.facebook.com/profile.php?id=61591805541882
+- Рада з питань ВПО Тростянецької громади — https://www.facebook.com/profile.php?id=61566590902480
+- Координаційна рада з питань ВПО у Вінницькій МТГ — https://www.facebook.com/koordradavpo.vinnitskamtg
+- Координаційна рада ВПО при Боярській міській раді — https://www.facebook.com/profile.php?id=100095383482510
+- Координаційна рада з питань ВПО м. Сарни — https://www.facebook.com/profile.php?id=61557834248294
+- Координаційна рада з питань ВПО Мамалигівської ТГ — https://www.facebook.com/profile.php?id=61556951761182
+- Координаційна рада з питань ВПО Недобоївської ТГ — https://www.facebook.com/profile.php?id=100041318421879
+- Координаційна рада з питань ВПО при Корецькій міській раді — https://www.facebook.com/profile.php?id=61571683089510
+- Координаційна рада з питань ВПО (громада не вказана) — https://www.facebook.com/profile.php?id=61571244852424
+- Рада ВПО Мішково-Погорілівської с/р (група) — https://www.facebook.com/groups/1254578349905907
+- Рада з питань ВПО при виконкомі Олександрівської селищної ради (Миколаївщина) — https://www.facebook.com/profile.php?id=61579435365784
+- Рада з питань ВПО при виконкомі Мигіївської с/р (група) — https://www.facebook.com/groups/1334823765142608
+- Рада з питань ВПО при Мангушській селищній раді — https://www.facebook.com/radaVPOMangush
+- Рада з питань ВПО Приютівської громади — https://www.facebook.com/radavpopriutivka
+- Рада з питань ВПО при виконкомі Костянтинівської с/р (Миколаївщина, група) — https://www.facebook.com/groups/1803774417315369
+
+**Ради без власної сторінки — новини шукати на сторінці громади (так вказано на Порталі рад ВПО)**
+- Хотінська селищна рада (Сумщина) — https://www.facebook.com/khotin.TG
+- Колківська громада (Волинь) — https://www.facebook.com/kolky.rada.org.ua
+- Володимирська міська рада (Волинь) — https://www.facebook.com/official.VMR
+- Іванківська селищна рада (Київщина) — https://www.facebook.com/profile.php?id=100064138806485
+- Личківська ОТГ (Дніпропетровщина, група) — https://www.facebook.com/groups/2020721917995958
+- Центр соціальної підтримки ВПО (Львів), при якому діє консультативно-дорадча рада — https://www.facebook.com/lvivsupportukrainians
+
+## Що вважається новиною
+
+Засідання, ухвалені рішення й рекомендації, зустрічі з владою, ініціативи й проєкти, звернення, опитування, навчання, обрання нових складів і створення рад, допомога ВПО, співпраця з партнерами.
+НЕ ВКЛЮЧАЙ: положення, статути, оголошення про набір без події, анонси майбутніх засідань, новини старші за ПЕРІОД, загальні новини про ВПО без участі ради, новини, які вже є на сторінці.
+
+## Правила
+
+- Тільки реальні новини з реальними посиланнями. Нічого не вигадуй: ні фактів, ні імен, ні посилань.
+- Кожен допис відкрий повністю («Більше») і бери факти лише з повного тексту.
+- Немає дати — «дата не підтверджена»; текст відкрився частково — познач.
+- Новин мало — так і напиши, не додавай старі.
+- Окремо перелічи, що відкинув і чому, та які сторінки не вдалося перевірити.
+
+## Частина 2. Сторінка на sss-ua.org
+
+Сторінка «Новини рад»: https://sss-ua.org/novyny-rad-test/ (WordPress, id 42296).
+
+1. **Фото.** Фото з Facebook (scontent…fbcdn.net) завантаж у медіатеку sss-ua.org через `/wp-json/wp/v2/media` (nonce з `wpApiSettings.nonce` або `/wp-admin/admin-ajax.php?action=rest-nonce`), назви `novyny-rad-&lt;громада&gt;.jpg`. Фото з *.gov.ua можна ставити прямим посиланням.
+2. **Оновлення сторінки.** Додай нові картки у той самий формат, що вже є на сторінці (`&lt;article class="nc"&gt;`: фото, мітка-тип, дата, «Громада · Рада», текст, «Першоджерело: … →»). Новини — від найновішої до найстарішої; найновіша — великим блоком (`nc big`). Додай джерела у список «Джерела» та онови період у вступі. Не дублюй новини, які вже є.
+3. **Перевірка.** Відкрий сторінку: усі фото завантажились, немає горизонтальної прокрутки, на телефоні та широкому екрані все виглядає нормально.
+
+Наприкінці коротко звітуй: скільки новин додано, що відкинуто, які джерела не вдалося перевірити, посилання на сторінку.</div>
+    </details>
+
+    <h3 style="margin-top:40px">Функція 2. Будувати спільноту рад</h3>
+    <p class="lead" style="margin-top:8px">Новини самі не з'являться, якщо з радами немає живого зв'язку. Тому в структурі відділу є окрема позиція — менеджер розвитку спільноти Рад ВПО.</p>
+    <div class="skills" style="margin-top:18px">
+      <div class="skill"><h3>Дзвонити головам рад</h3><p>Зібрати фото і кілька речень про подію телефоном, дізнатися, де рада насправді спілкується.</p><p class="how">З аналітичної записки про Портал.</p></div>
+      <div class="skill"><h3>Пости у співавторстві</h3><p>Ради і громади публікують разом із фондом (collab). Комунікаційники вчать партнерів цьому.</p><p class="how">Стандарти, розділ 8.</p></div>
+      <div class="skill"><h3>Три голоси в матеріалі</h3><p>Журналістський матеріал про раду показує, що рада змінила в громаді, і має щонайменше три голоси.</p><p class="how">Стандарти, розділ 11.</p></div>
+      <div class="skill"><h3>Чати і групи рад</h3><p>WhatsApp-спільнота рад ВПО і сторінка Facebook Рад ВПО — місце, куди повертаються новини і де ради бачать одна одну.</p><a class="res" href="https://www.facebook.com/IDPCouncils/" target="_blank" rel="noopener">Facebook Рад ВПО →</a></div>
+      <div class="skill"><h3>Залучення голів рад</h3><p>Репостити новини рад з їхніх ресурсів, проводити опитування і розіграші для користувачів, розвивати сторінку рад у Facebook.</p><p class="how">Ідеї О. Іванової до заявки на 2027 рік <span class="code">№87</span>.</p></div>
+      <div class="skill"><h3>Відзнаки й форуми</h3><p>Форуми Рад ВПО і відзнака «ЗаРади майбутнього» — регулярні приводи розповісти про конкретні ради.</p><a class="res" href="https://sss-ua.org/pro-forumy-rad-vpo/" target="_blank" rel="noopener">Про форуми Рад ВПО →</a></div>
+    </div>
+    <div class="facts" style="margin-top:22px">
+      <div class="fact"><b style="color:var(--brand)">8,7 тис.</b><span>активних користувачів Порталу у вересні</span></div>
+      <div class="fact"><b style="color:var(--brand)">14 / 12</b><span>матеріалів на Порталі у вересні / жовтні</span></div>
+      <div class="fact"><b style="color:var(--brand)">23</b><span>розсилки SendPulse за два місяці</span></div>
+      <div class="fact"><b style="color:var(--brand)">800+</b><span>рад ВПО по всій Україні — потенційні герої медіа</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- 3. НАВИЧКИ -->
 <section id="navychky">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="sec-num">03</span> · Що має прокачати менеджмент</p>
+      <p class="eyebrow"><span class="sec-num">04</span> · Що має прокачати менеджмент</p>
       <h2>Комунікаційники зараз збирають інформацію, а мали б створювати голос</h2>
       <p class="lead">Більшу частину часу колеги витрачають на операційну роботу: з'ясовують у PM, що сталося і про що говорити, ходять на наради, оформлюють матеріали. На інтерв'ю, пошук теми й роботу з експертом бракує і сил, і навичок. Розвивати ці навички — задача менеджменту комунікацій.</p>
     </div>
@@ -424,7 +685,7 @@ footer p+p{margin-top:8px}
       <div class="skill"><h3>2. Журналістський підхід</h3><p>Писати новину й колонку як матеріал для читача, а не як звіт: «результат дії», людина, цифра, що змінилося.</p><p class="how">Як: розбирати на п'ятничній нараді одну колонку, яку повернула редакція. Навчання з К. Дубнюк продовжити й зафіксувати домашні завдання <span class="code">№117</span>.</p></div>
       <div class="skill"><h3>3. Меседжі й аудиторії</h3><p>Знати, кому і що ми кажемо: донорам, владі, громадам, радам ВПО.</p><p class="how">Як: меседж-бокси й Tone of Voice до кінця 2026, тренінг для команди в січні 2027 <span class="code">С6.2</span>.</p></div>
       <div class="skill"><h3>4. Відео з телефона</h3><p>Короткі рілзи й відео з поїздок без підрядника. Ціль стратегії — не менше 12 відео на рік з 2027.</p><p class="how">Як: опитування і навчання з базового відеомейкінгу <span class="code">С4.2</span>; внутрішній тренер з монтажу з ШІ — І. Колосовський.</p><a class="res" href="https://drive.google.com/file/d/1vcoMBNcHcPFziwb0Iw_Cld0Mg5O9jaiP/view" target="_blank" rel="noopener">Посібник «Монтаж відео з Claude» →</a></div>
-      <div class="skill"><h3>5. Claude як асистент</h3><p>Розшифровка інтерв'ю, перша чернетка, перевірка за чеклістом: менше часу на рутину, більше на розмову з експертом.</p><p class="how">Як: 11 ліцензій уже видано <span class="code">№25</span>. Наступне — навчання команди й інструкція з прикладами промптів.</p></div>
+      <div class="skill"><h3>5. Claude як асистент</h3><p>Розшифровка інтерв'ю, перша чернетка, перевірка за чеклістом: менше часу на рутину, більше на розмову з експертом.</p><p class="how">Як: 11 ліцензій уже видано <span class="code">№25</span>. Перший робочий промпт — пошук новин рад (розділ «Портал рад»). Наступне — навчання команди й бібліотека промптів.</p></div>
       <div class="skill"><h3>6. Говорити «ні» без мети</h3><p>Задача без власника, дедлайну і мети не береться в роботу. Запити приходять через форму, PM дає факти й фото.</p><p class="how">Як: менеджер повертає запит без мети і стежить, щоб колонка «Мета / KPI» в трекері заповнювалась.</p><a class="res" href="https://docs.google.com/spreadsheets/d/1xZzGXf0uM-H08AP-6IiT2Sbl1jYueXwJm9l438D5InA/edit?gid=1233959484" target="_blank" rel="noopener">Заявки від колег на ком-задачі →</a></div>
     </div>
     <div class="videos" id="v2"></div>
@@ -435,7 +696,7 @@ footer p+p{margin-top:8px}
 <section id="rytm">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="sec-num">04</span> · Ритм</p>
+      <p class="eyebrow"><span class="sec-num">05</span> · Ритм</p>
       <h2>Тиждень, місяць, квартал: коли що робити</h2>
       <p class="lead">Ритм із розділу 19 «Комунікаційних стандартів ССС» і трекера. Зелене вже працює, жовте — пропозиція, яку треба запустити.</p>
     </div>
@@ -460,7 +721,7 @@ footer p+p{margin-top:8px}
 <section id="narady">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="sec-num">05</span> · Наради</p>
+      <p class="eyebrow"><span class="sec-num">06</span> · Наради</p>
       <h2>Як проводити наради і брати фокуси</h2>
       <p class="lead">У Стандартах є щотижнева нарада департаменту, де «обговорюємо плани на кілька наступних тижнів», але її день, тривалість і порядок денний не прописані. Нижче — формати, які вже працюють, і шаблони до них. Повний регламент нарад заплановано на 1–2 квартал 2027 <span class="code">С2.2</span>.</p>
     </div>
@@ -512,7 +773,7 @@ footer p+p{margin-top:8px}
 <section id="tablytsi">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="sec-num">06</span> · Таблиці</p>
+      <p class="eyebrow"><span class="sec-num">07</span> · Таблиці</p>
       <h2>Як вести таблиці, щоб вони працювали на рішення</h2>
       <p class="lead">Головна таблиця — трекер «Задачі_фонду». Запит від PM потрапляє туди через форму заявок, і там же видно, що зроблено, що далі і яке рішення потрібне. Нижче — що писати в кожну колонку, на прикладі задачі «Щотижневі 3 фокуси».</p>
     </div>
@@ -551,7 +812,7 @@ footer p+p{margin-top:8px}
 <section id="zvity">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="sec-num">07</span> · Звіти</p>
+      <p class="eyebrow"><span class="sec-num">08</span> · Звіти</p>
       <h2>Які звіти писати і що в них має бути</h2>
       <p class="lead">Звіт відповідає на одне питання: що змінилося завдяки нашій роботі. Тому в кожному звіті — результат з посиланням, цифра і наступний крок, а не перелік зробленого.</p>
     </div>
@@ -578,7 +839,7 @@ footer p+p{margin-top:8px}
 <section id="viddil">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="sec-num">08</span> · Відділ у дії</p>
+      <p class="eyebrow"><span class="sec-num">09</span> · Відділ у дії</p>
       <h2>Яким має бути відділ: від переліку задач до наступних дій</h2>
       <p class="lead">У трекері для кожної задачі є дві колонки: «Ком-задачі: що зроблено» і «Ком-задачі: що могли б зробити». Друга — це і є образ відділу: з кожної виконаної задачі виростає наступна дія, яка виносить результат назовні. Оберіть блок.</p>
     </div>
@@ -591,11 +852,80 @@ footer p+p{margin-top:8px}
   </div>
 </section>
 
+<!-- 8а. СТРУКТУРА -->
+<section id="struktura">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow"><span class="sec-num">10</span> · Оргструктура</p>
+      <h2>Структура відділу: хто за що відповідає <span class="tag prop">пропозиція</span></h2>
+      <p class="lead">Структуру комунікаційного підрозділу розробила Світлана Сом. Вона розводить управління, проєктні напрями і спільні функції, щоб комунікаційники не робили все одночасно. О. Іванова 10.11 зазначила, що це основа для аналізу, а не остаточне рішення.</p>
+    </div>
+
+    <div class="org" aria-label="Схема структури">
+      <div class="org-top">
+        <div class="node dir">Директорки</div>
+        <div class="node head">Керівник з розвитку<small>стратегія і бренд, управління, фінальне редагування, виступи · <b>нова вакансія</b></small></div>
+      </div>
+      <div class="org-cols">
+        <div class="ocol"><h4>УВКБ ООН</h4><div class="node">Фахівець з комунікацій<small>збір інформації, інтерв'ю, новини, пости, погодження з донором</small></div></div>
+        <div class="ocol"><h4>Гуманітарний напрям</h4><div class="node mgr">Менеджер з комунікацій<small>сам веде 2 великі проєкти, план супроводу, завдання фахівцям</small></div><div class="node">3 фахівці з комунікацій<small>збір інформації по портфелю, інтерв'ю, первинні тексти; старт з 50% зайнятості</small></div></div>
+        <div class="ocol"><h4>Інші проєкти</h4><div class="node mgr">Менеджер з комунікацій<small>планування, звіти, погодження з донором</small></div><div class="node">Фахівець з комунікацій<small>виїзди, тексти, фото, архів</small></div><p class="src">відкривається, коли з'являться потреба і бюджет</p></div>
+        <div class="ocol shared"><h4>Спільні функції</h4>
+          <div class="node">Контент-менеджер<small>сайти і SMM, контент-календар, аналітика</small></div>
+          <div class="node">Відеомейкер / продакшн<small>рілси, документальні відео, поліграфія</small></div>
+          <div class="node">Медіа-менеджер<small>робота з медіа, прес-релізи, пітчі</small></div>
+          <div class="node">Автори статей (2)<small>інтерв'ю і матеріали в громадах для всіх напрямів</small></div>
+          <div class="node">Менеджер спільноти Рад ВПО<small>матеріали від рад, залучення голів рад · <b>нова вакансія</b></small></div>
+        </div>
+      </div>
+    </div>
+    <div class="facts" style="margin-top:20px">
+      <div class="fact"><b style="color:var(--brand)">13</b><span>позицій у 5 напрямах</span></div>
+      <div class="fact"><b style="color:var(--brand)">2</b><span>нові вакансії: керівник з розвитку і менеджер спільноти Рад ВПО</span></div>
+      <div class="fact"><b style="color:var(--brand)">10</b><span>позицій пропонується закрити людьми з нинішньої команди</span></div>
+      <div class="fact"><b style="color:var(--brand)">160 год</b><span>на місяць = 100% зайнятості: ставка визначає час, на який беремо колегу</span></div>
+    </div>
+    <p class="note">Чому це важливо для «голосу фонду»: у структурі з'являються окремі <b>автори статей</b> і <b>медіа-менеджер</b>. Отже, інтерв'ю в громадах, колонки й пітчинг у медіа стають чиєюсь роботою, а не тим, що проєктний комунікаційник робить у вільний час.</p>
+
+    <h3 style="margin-top:36px;margin-bottom:12px">Норми часу: скільки реально встигає одна людина</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Матеріал</th><th>Годин на одиницю</th><th>Реалістично на тиждень</th><th>Хто ще залучений</th></tr></thead>
+        <tbody>
+          <tr><td class="col">Пост у соцмережах</td><td>0,5–1</td><td>10–15</td><td class="ex">PM (факти)</td></tr>
+          <tr><td class="col">Новина на сайт</td><td>2–4</td><td>5–7</td><td class="ex">PM, донор (погодження)</td></tr>
+          <tr><td class="col">Сторінка проєкту</td><td>3–5</td><td>3–4</td><td class="ex">PM</td></tr>
+          <tr><td class="col">Історія людини / кейс</td><td>6–10</td><td>2–3</td><td class="ex">координатор, герой</td></tr>
+          <tr><td class="col">Колонка керівниці чи експерта</td><td>6–12</td><td>1–2</td><td class="ex">автор</td></tr>
+          <tr><td class="col">Супровід великої події</td><td>16–24</td><td>1</td><td class="ex">PM, агенція</td></tr>
+          <tr><td class="col">Журналістський матеріал про вплив Рад ВПО</td><td>20–40 + 6–10 у колег</td><td>1 на 2–3 тижні</td><td class="ex">фасилітатор, регіональний координатор, юрист, експерт</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Цю таблицю використовуємо, коли плануємо тиждень і відповідаємо на запит: якщо колонка забирає 6–12 годин, за той самий час виходить 10 постів. Пріоритет визначаємо свідомо.</p>
+
+    <h3 style="margin-top:36px;margin-bottom:12px">Контроль якості без участі керівництва</h3>
+    <div class="qc">
+      <div class="panel"><h4>Помилки в описах проєктів</h4><p>Пишемо лише з факт-листа PM. Текст від AI не публікуємо без вичитки другою людиною. PM письмово підтверджує фінальний текст.</p><p class="esc">Ескалація: помилку помітили зовні — виправити за 24 год і повідомити PM.</p></div>
+      <div class="panel"><h4>Мало учасників на заході</h4><p>У плані заходу — ціль реєстрацій і явки, план залучення за 3 тижні, перевірка за 14, 7 і 3 дні.</p><p class="esc">Ескалація: за 7 днів менше 50% цілі — PM і О. Іванова.</p></div>
+      <div class="panel"><h4>Помилки в новинах і постах</h4><p>Чекліст: імена й посади, назви громад, цифри, дати, логотипи донора, посилання, фото з дозволом.</p><p class="esc">Ескалація: дві помилки в одного автора за місяць — розмова.</p></div>
+      <div class="panel"><h4>Зрив зобов'язань перед донором</h4><p>Реєстр зобов'язань по кожному проєкту: що, коли, хто. Перевірка щотижня, реєстр — частина трекера.</p><p class="esc">Ескалація: за 7 днів до строку не виконується — PM і О. Іванова.</p></div>
+    </div>
+    <p class="note">Керівництво отримує тільки ескалації за цими сигналами і щомісячний звіт на 1 сторінку: помилки й виправлення, заходи (ціль / факт), зобов'язання (виконано / зриви). Решту рішень ухвалює команда.</p>
+
+    <h3 style="margin-top:36px;margin-bottom:12px">19 функцій, які треба закріпити за людьми з 21.11</h3>
+    <ol class="funcs">
+      <li>Редакційний контроль</li><li>Погодження фактів</li><li>Погодження з донором</li><li>Планування пріоритетів</li><li>Координація з проєктами</li><li>Зобов'язання перед партнерами</li><li>Сайт: публікації і сторінки</li><li>Нова верстка сайту 2026</li><li>Соцмережі і LinkedIn</li><li>Портал Рад ВПО і розсилки</li><li>Колонки керівництва</li><li>Залучення учасників на заходи</li><li>Медіа-запити</li><li>Брендбук для соцмереж</li><li>Трекер задач і контент-план</li><li>Ритм команди</li><li>Вакансії й співбесіди</li><li>Внутрішня розсилка і показники</li><li>Безкоштовне промо і пітчинг</li>
+    </ol>
+    <p class="note">Тимчасовий розподіл діє з 21.11 до виходу керівника з розвитку або до 31.12. Кожну роль треба погодити з людиною і з О. Івановою на зустрічі щодо передачі. Контракти NRC і ProAct закінчуються 30.11, УВКБ ООН — 31.12. Схема — в документі <a href="https://docs.google.com/document/d/107FjjUEmClhpPYFjnxxXOSjRxzLRjWZjnNvue5XklpQ/edit" target="_blank" rel="noopener">«Органіграма комунікаційного підрозділу SSS»</a>; розподіл і обґрунтування — у таблиці «Структура комунікаційного підрозділу SSS» на Диску фонду.</p>
+  </div>
+</section>
+
 <!-- 9. ДАЛІ -->
 <section id="dali">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="sec-num">09</span> · Що далі</p>
+      <p class="eyebrow"><span class="sec-num">11</span> · Що далі</p>
       <h2>Що зробити керівникам найближчим часом</h2>
     </div>
     <div class="due">
@@ -634,7 +964,7 @@ footer p+p{margin-top:8px}
 <section id="instrumenty">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow"><span class="sec-num">10</span> · Усе в одному місці</p>
+      <p class="eyebrow"><span class="sec-num">12</span> · Усе в одному місці</p>
       <h2>Інструменти, таблиці, шаблони і навчання</h2>
     </div>
     <label for="q" class="eyebrow" style="display:block;margin-bottom:6px">Пошук за назвою</label>
