@@ -234,6 +234,18 @@ td.ex{color:var(--muted);font-size:.86rem}
 .ex .how b{color:var(--ink)}
 .ex a.res{font-size:.88rem;font-weight:600}
 @media (max-width:960px){.exp{grid-template-columns:minmax(0,1fr)}}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ticks li{position:relative;padding-left:28px;font-size:.94rem}
+.ticks li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:5px;border:2px solid var(--brand)}
+.brand-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:12px}
+.brand-links a{display:grid;gap:2px;background:color-mix(in srgb,var(--brand-ink) 10%,transparent);border-radius:10px;padding:12px;text-decoration:none;color:var(--brand-ink)}
+.brand-links b{font-family:var(--f-head);color:var(--sun)}
+.brand-links span{font-size:.84rem}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}
+.shots figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.shots img{width:100%;aspect-ratio:1440/653;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+.shots figcaption{font-size:.86rem;padding:10px 12px;color:var(--muted)}
+@media (max-width:700px){.shots{grid-template-columns:minmax(0,1fr)}}
 .pc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
 .pcard{display:grid;gap:6px;align-content:start;background:var(--surface);border:1px solid var(--line);border-top:4px solid #00254a;border-radius:14px;padding:16px;text-decoration:none;color:var(--ink);min-width:0}
 .pcard:hover{border-color:#00254a}
@@ -412,6 +424,29 @@ footer p+p{margin-top:8px}
           <li>У нас поки немає ні бази власних експертів, ні бази медіа. Обидві заплановано на початок 2027 року.</li>
         </ul>
         <p style="margin-top:14px"><b>Висновок:</b> щоб вийти назовні, нам треба просувати експертність колег. Медіа цікавить людина з позицією й даними, а не організація загалом.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px">Як написати гарну колонку: чекліст</h3>
+    <div class="two" style="margin-top:14px">
+      <div class="panel">
+        <ul class="ticks">
+          <li>Колонка — це позиція експертки, а не новина фонду і не звіт про проєкт.</li>
+          <li>Одна головна думка. Якщо її не можна сказати одним реченням — тема ще не дозріла.</li>
+          <li>Заголовок — думка або питання, а не назва події.</li>
+          <li>Перший абзац — одразу про проблему через людину, цифру чи ситуацію з громади. Без вступу про фонд.</li>
+          <li>2–3 аргументи, і за кожним — цифра з джерелом або приклад громади.</li>
+          <li>Відповідаємо тим, хто може не погодитися.</li>
+          <li>Фонд згадуємо раз-два, як джерело досвіду.</li>
+          <li>Наприкінці — конкретна пропозиція: що змінити, кому і як.</li>
+          <li>4–7 тисяч знаків, короткі абзаци, без пафосу.</li>
+        </ul>
+      </div>
+      <div class="panel sun">
+        <h3>Урок від LIGA.Думки</h3>
+        <p>Колонку «Токсична стійкість» редакція повернула: вона «не відповідає нормам колонки». У кожного видання свої вимоги до формату, тому перед подачею завжди відкриваємо правила саме цього медіа.</p>
+        <p style="margin-top:10px"><a href="https://www.liga.net/ua/opinion_rules" target="_blank" rel="noopener">Правила колонок LIGA.Думки →</a></p>
+        <p class="src" style="margin-top:12px">Зразки: <a href="https://life.pravda.com.ua/columns/vid-vpo-do-rushijiv-zmin-yak-dosvid-pereselenciv-mozhe-pracyuvati-na-rozvitok-gromad-312685/" target="_blank" rel="noopener">«Від ВПО — до рушіїв змін»</a> в «УП. Життя» і колонка Валерії Вершиніної «Ціна участі» на сайті фонду. Повний чекліст — «Комунікаційні стандарти ССС», розділ 10.</p>
       </div>
     </div>
   </div>
@@ -1371,6 +1406,23 @@ const LINKS=[
   ["Рекомендації щодо фотозвітності",D+"1qQfJri3T32QS1EN_QYXnH1RUGvD0uDU4SAXtJ7kjhPU/edit","фото для донорів"],
   ["Органіграма комунікаційного підрозділу",D+"107FjjUEmClhpPYFjnxxXOSjRxzLRjWZjnNvue5XklpQ/edit",""]
  ]},
+ {g:"Навчання з Ксенією Дубнюк",items:[
+  ["Зустріч 1: презентація",  "https://drive.google.com/file/d/1420brCJ8ONgyowZECyOJ-u9B19ydWdW2/view","сходи Бена Ганта, AIDA, 5C, PAS, МАСК"],
+  ["Зустріч 1: запис","https://drive.google.com/file/d/1otU4e5H7YkxsI_U3uDU6Z4koyzfsI2Ps/view","20 серпня"],
+  ["Зустріч 1: напрацювання з Miro","https://drive.google.com/file/d/10_YUbC9xGNJXH8XTsP-NrMkS_qvo6k00/view","карта шляху людини"],
+  ["Зустріч 2: запис","https://drive.google.com/file/d/1brl0QEXnoBQ7tFhYCBt6-Zk3ik4JFEP0/view","від стратегії до задач"]
+ ]},
+ {g:"Від партнерів і агенцій",items:[
+  ["Комунікаційна стратегія 2026–2028 (Діана Ігнатенко)",D+"1qXUu1siQqbb09tw7CqaXyu0i4-ECx8NAjJyb-QlxISc/edit","цілі, аудиторії, ризики, KPI, меседж-бокс, антикризовий план"],
+  ["Бриф для стратегії",D+"1pHqu6f83Fe6aNEYnZd5BZiZWgO1Y3D1S/edit","що фонд розповів про себе на старті"],
+  ["Аналіз аудиторій і стейкхолдерів",S+"17K6biAFcGzE9ojZByEYaX0jSqN7wI0e-5EsAKAG_8xg/edit","основа для портретів аудиторій"],
+  ["Форма комунікаційних ризиків","https://forms.gle/Fz2Vc5kJPVNFNBJr7","повідомити про ризик"],
+  ["Анонс IV Форуму від агенції",D+"1RgYCwssgGH7SZ2Gy8kUE9j8V1sd6FYV_AfEsQso3qtA/edit","зразок пресанонсу"],
+  ["ТЗ на рілз з радами ВПО",D+"1n5kmlZrXTx6S7DBc4UuYRxe42cC6lGhHicY19PNt6wA/edit","шаблон ТЗ для відео"],
+  ["Звіт медіаохоплення III Форуму","https://drive.google.com/file/d/1V-mVBEW20Q03IiRyS4ONPD6qGymef8DT/view","база для порівняння"],
+  ["Фото з фотобудки IV Форуму","https://drive.google.com/drive/folders/1t9xR7lUoflc2lnyb5kj7RunGH3w_x8Fj","папка"],
+  ["Timeline спецпроєкту (Mediaexpert)",S+"12da5ZhpcTRYx5ZXvaVDQz9G0QKNnlbRxQ0rOiJNe1Co/edit","план, ролі, база героїв історій"]
+ ]},
  {g:"Стратегія і результати",items:[
   ["Стратегія (папка)","https://drive.google.com/drive/u/1/folders/1_kTaoohpM-V2HxWF-QCFXkQokuFL1bwV","комунікаційна стратегія і презентація"],
   ["Декомпозиція стратегії — операційні завдання",S+"1yPF9rNu2KzvLI_b_WUKI5XsNWBwoLG4a4MQyhLZEtCM/edit?gid=1524788926","кроки за кварталами до 2028"],
@@ -1395,7 +1447,8 @@ const LINKS=[
   ["Відео: презентація брендбуку","https://youtu.be/9t7v0dg1B3o","пояснення дизайнерки"],
   ["Шаблони постів за рубриками",D+"1CLW5rseD0fku3O2L1tXLvQidawoq_56HAYbMRsSKO2E/edit",""],
   ["Шаблони візуалів для соцмереж",D+"104qjqJr5DzpbYNk40V5T8TqiuRZ13rT7rPgMKg9IkCM/edit","розміри під платформи"],
-  ["Логотипи партнерів","https://drive.google.com/drive/u/1/folders/106UtJWP1jIaLS-ICsAw0kWeDh1RE-IjR","папка"]
+  ["Логотипи партнерів","https://drive.google.com/drive/u/1/folders/106UtJWP1jIaLS-ICsAw0kWeDh1RE-IjR","папка"],
+  ["Бренд-кіт Ігоря Колосовського (не затверджено)","https://ikolosovskiy.github.io/SSS_brand/","гайд-приклад; у роботі — чинний брендбук"]
  ]},
  {g:"Навчання",items:[
   ["Як зробити крутезний контент для фонду","https://drive.google.com/file/d/1yy2_pf6I3ZqzzXjnzMADgqZ3fsVSdej0/view?usp=sharing","презентація"],
